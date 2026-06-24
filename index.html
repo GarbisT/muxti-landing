@@ -319,20 +319,19 @@
       display: block;
     }
 
-    /* SVG frame overlaid on top of screenshot */
+    /* Frame img is in-flow (not absolute) so it defines the phone div's height.
+       phone-screen is absolute, references this computed height for % values. */
     .phone-frame-img {
-      position: absolute;
-      top: 0; left: 0;
+      display: block;
       width: 100%;
-      height: 100%;
+      height: auto;
+      position: relative;
       z-index: 2;
       pointer-events: none;
-      display: block;
     }
 
     .phone-center {
       width: 248px;
-      aspect-ratio: 820 / 1813;
       left: 50%;
       transform: translateX(-50%);
       top: 0;
@@ -344,7 +343,6 @@
 
     .phone-left {
       width: 226px;
-      aspect-ratio: 820 / 1813;
       left: 50%;
       margin-left: -218px;
       top: 55px;
@@ -356,7 +354,6 @@
 
     .phone-right {
       width: 226px;
-      aspect-ratio: 820 / 1813;
       left: 50%;
       margin-left: -8px;
       top: 55px;
@@ -581,8 +578,6 @@
     .ss-phone {
       position: absolute;
       width: 210px;
-      aspect-ratio: 820 / 1813;
-      /* SVG frame handles all appearance */
     }
 
     /* Reuse the same phone-screen and phone-frame-img classes */
@@ -865,7 +860,6 @@
         display: block;
         width: 112px;
         height: auto;
-        aspect-ratio: 820 / 1813;
         top: 30px;
       }
       .phone-left  { margin-left: -120px; }
@@ -873,7 +867,6 @@
       .phone-center {
         width: 136px;
         height: auto;
-        aspect-ratio: 820 / 1813;
       }
     }
   </style>
