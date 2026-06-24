@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MUXTI — Cyprus's Premier Marketplace</title>
 
+  <!-- ─── GTM Consent Mode (default: denied until user accepts) ──── -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    // Default: deny all until consent given
+    gtag('consent', 'default', {
+      'ad_storage':            'denied',
+      'ad_user_data':          'denied',
+      'ad_personalization':    'denied',
+      'analytics_storage':     'denied',
+      'wait_for_update':       500
+    });
+  </script>
   <!-- ─── Google Tag Manager ──────────────────────────────────────── -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -1148,6 +1161,97 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
   });
 </script>
+
+
+<!-- ─── GDPR Cookie Banner ─────────────────────────────────────────── -->
+<div id="cookie-banner" style="
+  display:none;
+  position:fixed;
+  bottom:0;left:0;right:0;
+  background:#0f0f1a;
+  border-top:1px solid rgba(124,58,237,0.4);
+  padding:20px 24px;
+  z-index:99999;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  box-shadow:0 -4px 24px rgba(0,0,0,0.4);
+">
+  <div style="max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <p style="margin:0 0 6px;color:#fff;font-size:15px;font-weight:600;">🍪 We use cookies</p>
+      <p style="margin:0;color:#a0a0b8;font-size:13px;line-height:1.5;">
+        We use cookies and similar tracking technologies to analyse traffic and improve your experience.
+        By clicking <strong style="color:#fff;">Accept</strong>, you consent to our use of analytics and advertising cookies.
+        <a href="https://garbist.github.io/muxti-support/privacy.html" target="_blank" style="color:#7c3aed;text-decoration:underline;">Privacy Policy</a>
+      </p>
+    </div>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button id="cookie-reject" style="
+        padding:10px 20px;
+        background:transparent;
+        border:1px solid rgba(255,255,255,0.2);
+        color:#a0a0b8;
+        border-radius:8px;
+        font-size:14px;
+        cursor:pointer;
+      ">Reject all</button>
+      <button id="cookie-accept" style="
+        padding:10px 24px;
+        background:linear-gradient(135deg,#7c3aed,#4f46e5);
+        border:none;
+        color:#fff;
+        border-radius:8px;
+        font-size:14px;
+        font-weight:600;
+        cursor:pointer;
+      ">Accept all</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var CONSENT_KEY = 'muxti_cookie_consent';
+
+    function applyConsent(granted) {
+      var val = granted ? 'granted' : 'denied';
+      gtag('consent', 'update', {
+        'ad_storage':         val,
+        'ad_user_data':       val,
+        'ad_personalization': val,
+        'analytics_storage':  val
+      });
+    }
+
+    function hideBanner() {
+      var b = document.getElementById('cookie-banner');
+      if (b) b.style.display = 'none';
+    }
+
+    var saved = localStorage.getItem(CONSENT_KEY);
+    if (saved) {
+      applyConsent(saved === 'granted');
+    } else {
+      // Show banner after short delay
+      setTimeout(function() {
+        var b = document.getElementById('cookie-banner');
+        if (b) b.style.display = 'block';
+      }, 800);
+    }
+
+    document.getElementById('cookie-accept').addEventListener('click', function() {
+      localStorage.setItem(CONSENT_KEY, 'granted');
+      applyConsent(true);
+      hideBanner();
+    });
+
+    document.getElementById('cookie-reject').addEventListener('click', function() {
+      localStorage.setItem(CONSENT_KEY, 'denied');
+      applyConsent(false);
+      hideBanner();
+    });
+  })();
+</script>
+<!-- ─── End Cookie Banner ──────────────────────────────────────────── -->
 
 </body>
 </html>
