@@ -819,9 +819,24 @@
       .cats-grid { grid-template-columns: repeat(3, 1fr); }
       .steps { grid-template-columns: 1fr; }
       .steps::before { display: none; }
-      .showcase-row { grid-template-columns: 1fr; }
+      .showcase-row { grid-template-columns: 1fr; margin-bottom: 56px; }
       .showcase-row.reverse { direction: ltr; }
-      .showcase-phones { display: none; }
+      /* Show one phone per showcase section instead of hiding them */
+      .showcase-phones {
+        height: 300px;
+        justify-content: center;
+      }
+      .ss-phone-2 { display: none; }
+      .ss-phone-1 {
+        position: relative;
+        left: auto;
+        margin-left: 0;
+        top: 0;
+        width: 148px;
+        height: 280px;
+      }
+      .section { padding: 60px 20px; }
+      .stats-wrap { padding-bottom: 60px; }
       footer { flex-direction: column; gap: 18px; text-align: center; }
       .stats-bar { flex-wrap: wrap; gap: 0; }
       .stat { min-width: 50%; border-right: none; padding: 16px 0; }
@@ -830,8 +845,26 @@
     @media (max-width: 600px) {
       .features-grid { grid-template-columns: 1fr; }
       .cats-grid { grid-template-columns: repeat(3, 1fr); }
-      .phone-left, .phone-right { display: none; }
       .cta-card { padding: 44px 24px; }
+      .hero-actions { margin-bottom: 40px; }
+
+      /* Show all 3 hero phones on mobile, scaled to fit */
+      .phones {
+        height: 300px;
+      }
+      .phone::after { width: 46px; height: 14px; }
+      .phone-left, .phone-right {
+        display: block;
+        width: 112px;
+        height: 242px;
+        top: 30px;
+      }
+      .phone-left  { margin-left: -120px; }
+      .phone-right { margin-left: -10px; }
+      .phone-center {
+        width: 136px;
+        height: 294px;
+      }
     }
   </style>
 </head>
