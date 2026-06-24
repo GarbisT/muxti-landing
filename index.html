@@ -292,16 +292,26 @@
       margin: 0 auto;
     }
 
+    /* iPhone 17 Pro Max frame wrapper */
     .phone {
       position: absolute;
-      width: 226px;
-      border-radius: 38px;
-      border: 7px solid rgba(255,255,255,0.13);
-      background: #0f1323;
-      overflow: hidden;
+      /* SVG frame defines appearance — no border/radius/bg here */
     }
 
-    .phone img {
+    /* Screen clip: matches the SVG screen area exactly */
+    .phone-screen {
+      position: absolute;
+      top: 2.22%;       /* 14 / 632 */
+      left: 4.67%;      /* 14 / 300 */
+      width: 90.67%;    /* 272 / 300 */
+      height: 95.57%;   /* 604 / 632 */
+      border-radius: 13%;
+      overflow: hidden;
+      z-index: 1;
+      background: #0f1323;
+    }
+
+    .phone-screen img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -309,55 +319,55 @@
       display: block;
     }
 
+    /* SVG frame overlaid on top of screenshot */
+    .phone-frame-img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+      display: block;
+    }
+
     .phone-center {
       width: 248px;
-      height: 536px;
+      aspect-ratio: 300 / 632;
       left: 50%;
       transform: translateX(-50%);
       top: 0;
       z-index: 3;
-      border-color: rgba(255,255,255,0.20);
-      box-shadow:
-        0 0 0 1px rgba(255,255,255,0.08),
-        0 30px 80px rgba(0,0,0,0.6),
-        0 0 60px rgba(124,58,237,0.30);
+      filter:
+        drop-shadow(0 0 40px rgba(124,58,237,0.35))
+        drop-shadow(0 30px 60px rgba(0,0,0,0.65));
     }
 
     .phone-left {
-      height: 490px;
+      width: 226px;
+      aspect-ratio: 300 / 632;
       left: 50%;
       margin-left: -218px;
       top: 55px;
       z-index: 2;
       transform: rotate(-7deg);
-      opacity: 0.80;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.55);
+      opacity: 0.82;
+      filter: drop-shadow(0 20px 50px rgba(0,0,0,0.60));
     }
 
     .phone-right {
-      height: 490px;
+      width: 226px;
+      aspect-ratio: 300 / 632;
       left: 50%;
       margin-left: -8px;
       top: 55px;
       z-index: 2;
       transform: rotate(7deg);
-      opacity: 0.80;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.55);
+      opacity: 0.82;
+      filter: drop-shadow(0 20px 50px rgba(0,0,0,0.60));
     }
 
-    /* Notch */
-    .phone::after {
-      content: '';
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 22px;
-      background: #0f1323;
-      border-radius: 0 0 16px 16px;
-      z-index: 4;
-    }
+    /* No CSS notch needed — Dynamic Island is in the SVG */
+    .phone::after { display: none; }
 
     /* ─── Stats bar ─────────────────────────────────────────────── */
     .stats-wrap {
@@ -571,13 +581,24 @@
     .ss-phone {
       position: absolute;
       width: 210px;
-      border-radius: 34px;
-      border: 6px solid rgba(255,255,255,0.12);
-      background: #0f1323;
-      overflow: hidden;
+      aspect-ratio: 300 / 632;
+      /* SVG frame handles all appearance */
     }
 
-    .ss-phone img {
+    /* Reuse the same phone-screen and phone-frame-img classes */
+    .ss-phone .phone-screen {
+      position: absolute;
+      top: 2.22%;
+      left: 4.67%;
+      width: 90.67%;
+      height: 95.57%;
+      border-radius: 13%;
+      overflow: hidden;
+      z-index: 1;
+      background: #0f1323;
+    }
+
+    .ss-phone .phone-screen img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -585,35 +606,26 @@
       display: block;
     }
 
-    .ss-phone::after {
-      content: '';
-      position: absolute;
-      top: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70px; height: 20px;
-      background: #0f1323;
-      border-radius: 0 0 12px 12px;
-      z-index: 2;
-    }
+    .ss-phone::after { display: none; }
 
     .ss-phone-1 {
-      height: 455px;
       left: 50%;
       margin-left: -180px;
       top: 20px;
       z-index: 2;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+      filter:
+        drop-shadow(0 24px 50px rgba(0,0,0,0.55))
+        drop-shadow(0 0 30px rgba(124,58,237,0.20));
     }
 
     .ss-phone-2 {
-      height: 430px;
       left: 50%;
       margin-left: -60px;
       top: 40px;
       z-index: 1;
-      box-shadow: 0 20px 50px rgba(124,58,237,0.25);
-      border-color: rgba(124,58,237,0.30);
+      filter:
+        drop-shadow(0 20px 40px rgba(124,58,237,0.30));
+      opacity: 0.88;
     }
 
     /* ─── Categories ─────────────────────────────────────────────── */
@@ -821,19 +833,18 @@
       .steps::before { display: none; }
       .showcase-row { grid-template-columns: 1fr; margin-bottom: 56px; }
       .showcase-row.reverse { direction: ltr; }
-      /* Show one phone per showcase section instead of hiding them */
-      .showcase-phones {
-        height: 300px;
-        justify-content: center;
-      }
+      /* Show one centered phone per showcase section */
+      .showcase-phones { height: auto; padding-bottom: 20px; }
       .ss-phone-2 { display: none; }
       .ss-phone-1 {
         position: relative;
         left: auto;
-        margin-left: 0;
+        margin-left: auto;
+        margin-right: auto;
         top: 0;
         width: 148px;
-        height: 280px;
+        height: auto;
+        display: block;
       }
       .section { padding: 60px 20px; }
       .stats-wrap { padding-bottom: 60px; }
@@ -849,21 +860,20 @@
       .hero-actions { margin-bottom: 40px; }
 
       /* Show all 3 hero phones on mobile, scaled to fit */
-      .phones {
-        height: 300px;
-      }
-      .phone::after { width: 46px; height: 14px; }
+      .phones { height: 300px; }
       .phone-left, .phone-right {
         display: block;
         width: 112px;
-        height: 242px;
+        height: auto;
+        aspect-ratio: 300 / 632;
         top: 30px;
       }
       .phone-left  { margin-left: -120px; }
       .phone-right { margin-left: -10px; }
       .phone-center {
         width: 136px;
-        height: 294px;
+        height: auto;
+        aspect-ratio: 300 / 632;
       }
     }
   </style>
@@ -912,19 +922,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="#features" class="btn-secondary">See how it works ↓</a>
   </div>
 
-  <!-- Phone mockups with real screenshots -->
+  <!-- Phone mockups with real screenshots — iPhone 17 Pro Max frames -->
   <div class="phones">
-    <!-- Left: MacBook Pro listing detail — stunning purple/blue photo -->
+    <!-- Left -->
     <div class="phone phone-left">
-      <img src="assets/detail_mac.webp" alt="MUXTI listing detail" loading="lazy" />
+      <div class="phone-screen">
+        <img src="assets/detail_mac.webp" alt="MUXTI listing detail" loading="lazy" />
+      </div>
+      <img src="assets/iphone17-frame.svg" class="phone-frame-img" alt="" aria-hidden="true" />
     </div>
-    <!-- Center: Home feed — featured + trending -->
+    <!-- Center -->
     <div class="phone phone-center">
-      <img src="assets/home_dark.webp" alt="MUXTI home feed" loading="eager" />
+      <div class="phone-screen">
+        <img src="assets/home_dark.webp" alt="MUXTI home feed" loading="eager" />
+      </div>
+      <img src="assets/iphone17-frame.svg" class="phone-frame-img" alt="" aria-hidden="true" />
     </div>
-    <!-- Right: Search screen -->
+    <!-- Right -->
     <div class="phone phone-right">
-      <img src="assets/search.webp" alt="MUXTI search" loading="lazy" />
+      <div class="phone-screen">
+        <img src="assets/search.webp" alt="MUXTI search" loading="lazy" />
+      </div>
+      <img src="assets/iphone17-frame.svg" class="phone-frame-img" alt="" aria-hidden="true" />
     </div>
   </div>
 </div>
@@ -1034,10 +1053,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="showcase-phones">
       <div class="ss-phone ss-phone-1">
-        <img src="assets/sidebar_dark.png" alt="MUXTI sidebar menu" loading="lazy" />
+        <div class="phone-screen">
+          <img src="assets/sidebar_dark.png" alt="MUXTI sidebar menu" loading="lazy" />
+        </div>
+        <img src="assets/iphone17-frame.svg" class="phone-frame-img" alt="" aria-hidden="true" />
       </div>
       <div class="ss-phone ss-phone-2">
-        <img src="assets/home_dark.webp" alt="MUXTI home feed dark theme" loading="lazy" />
+        <div class="phone-screen">
+          <img src="assets/home_dark.webp" alt="MUXTI home feed dark theme" loading="lazy" />
+        </div>
+        <img src="assets/iphone17-frame.svg" class="phone-frame-img" alt="" aria-hidden="true" />
       </div>
     </div>
   </div>
@@ -1057,10 +1082,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="showcase-phones">
       <div class="ss-phone ss-phone-1">
-        <img src="assets/detail_mac.webp" alt="MUXTI MacBook listing" loading="lazy" />
+        <div class="phone-screen">
+          <img src="assets/detail_mac.webp" alt="MUXTI MacBook listing" loading="lazy" />
+        </div>
+        <img src="assets/iphone17-frame.svg" class="phone-frame-img" alt="" aria-hidden="true" />
       </div>
       <div class="ss-phone ss-phone-2">
-        <img src="assets/detail_ipad.webp" alt="MUXTI iPad listing" loading="lazy" />
+        <div class="phone-screen">
+          <img src="assets/detail_ipad.webp" alt="MUXTI iPad listing" loading="lazy" />
+        </div>
+        <img src="assets/iphone17-frame.svg" class="phone-frame-img" alt="" aria-hidden="true" />
       </div>
     </div>
   </div>
@@ -1080,10 +1111,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="showcase-phones">
       <div class="ss-phone ss-phone-1">
-        <img src="assets/search.webp" alt="MUXTI search" loading="lazy" />
+        <div class="phone-screen">
+          <img src="assets/search.webp" alt="MUXTI search" loading="lazy" />
+        </div>
+        <img src="assets/iphone17-frame.svg" class="phone-frame-img" alt="" aria-hidden="true" />
       </div>
       <div class="ss-phone ss-phone-2">
-        <img src="assets/post.webp" alt="MUXTI post listing" loading="lazy" />
+        <div class="phone-screen">
+          <img src="assets/post.webp" alt="MUXTI post listing" loading="lazy" />
+        </div>
+        <img src="assets/iphone17-frame.svg" class="phone-frame-img" alt="" aria-hidden="true" />
       </div>
     </div>
   </div>
