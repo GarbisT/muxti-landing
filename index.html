@@ -345,19 +345,7 @@
       box-shadow: 0 20px 60px rgba(0,0,0,0.55);
     }
 
-    /* Notch */
-    .phone::after {
-      content: '';
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 22px;
-      background: #0f1323;
-      border-radius: 0 0 16px 16px;
-      z-index: 4;
-    }
+    .phone::after { display: none; }
 
     /* ─── Stats bar ─────────────────────────────────────────────── */
     .stats-wrap {
@@ -585,17 +573,7 @@
       display: block;
     }
 
-    .ss-phone::after {
-      content: '';
-      position: absolute;
-      top: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70px; height: 20px;
-      background: #0f1323;
-      border-radius: 0 0 12px 12px;
-      z-index: 2;
-    }
+    .ss-phone::after { display: none; }
 
     .ss-phone-1 {
       height: 455px;
@@ -853,7 +831,7 @@
       .phones {
         height: 300px;
       }
-      .phone::after { width: 46px; height: 14px; }
+
       .phone-left, .phone-right {
         display: block;
         width: 112px;
