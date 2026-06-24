@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MUXTI — Cyprus's Premier Marketplace</title>
+  <meta name="description" content="Buy, sell, trade and find amazing deals near you. MUXTI is Cyprus's premier marketplace app." />
+
+  <!-- ─── Canonical & Robots ──────────────────────────────────────── -->
+  <link rel="canonical" href="https://muxti.cy/" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- ─── Open Graph (Facebook / Instagram / LinkedIn) ───────────── -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://muxti.cy/" />
+  <meta property="og:site_name"   content="MUXTI" />
+  <meta property="og:title"       content="MUXTI — Cyprus's Premier Marketplace" />
+  <meta property="og:description" content="Buy, sell, trade and find amazing deals near you. Cyprus's premier peer-to-peer marketplace app." />
+  <meta property="og:image"       content="https://muxti.cy/assets/og-image.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale"      content="en_CY" />
+
+  <!-- ─── Twitter / X Card ───────────────────────────────────────── -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="MUXTI — Cyprus's Premier Marketplace" />
+  <meta name="twitter:description" content="Buy, sell, trade and find amazing deals near you. Cyprus's premier peer-to-peer marketplace app." />
+  <meta name="twitter:image"       content="https://muxti.cy/assets/og-image.png" />
+
+  <!-- ─── iOS Smart App Banner ───────────────────────────────────── -->
+  <!-- Replace YOUR_APP_ID with the numeric App Store ID once approved -->
+  <meta name="apple-itunes-app" content="app-id=YOUR_APP_ID, app-argument=https://muxti.cy/" />
+
+  <!-- ─── Theme & PWA basics ─────────────────────────────────────── -->
+  <meta name="theme-color" content="#7C3AED" />
+  <meta name="application-name" content="MUXTI" />
+
+  <!-- ─── Structured Data (JSON-LD) ──────────────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "MUXTI",
+    "description": "Cyprus's premier peer-to-peer marketplace. Buy, sell, trade and find amazing deals near you.",
+    "url": "https://muxti.cy/",
+    "applicationCategory": "ShoppingApplication",
+    "operatingSystem": "iOS",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "inLanguage": "en",
+    "availableOnDevice": "iPhone",
+    "countriesSupported": "CY",
+    "publisher": {
+      "@type": "Organization",
+      "name": "BoogieApps",
+      "email": "boogieapps.help@gmail.com",
+      "url": "https://muxti.cy/"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0D1129;
+      --navy2:   #0f1323;
+      --purple:  #7C3AED;
+      --purple2: #6D28D9;
+      --blue:    #3B82F6;
+      --pink:    #EC4899;
+      --white:   #FFFFFF;
+      --text2:   rgba(255,255,255,0.65);
+      --text3:   rgba(255,255,255,0.35);
+      --grad:    linear-gradient(135deg, var(--purple), var(--blue));
+      --glass:   rgba(255,255,255,0.04);
+      --glass-border: rgba(255,255,255,0.09);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Nav ───────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 16px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      background: rgba(13,17,41,0.80);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .nav-logo {
+      font-size: 21px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #A78BFA, #60A5FA);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--purple), var(--blue)) !important;
+      color: var(--white) !important;
+      padding: 9px 22px;
+      border-radius: 50px;
+      font-weight: 700 !important;
+    }
+
+    /* ─── Hero ──────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 130px 24px 60px;
+      overflow: hidden;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+    }
+    .blob-1 { width: 700px; height: 700px; background: rgba(124,58,237,0.22); top: -150px; left: -250px; }
+    .blob-2 { width: 550px; height: 550px; background: rgba(59,130,246,0.18); bottom: -80px; right: -180px; }
+    .blob-3 { width: 400px; height: 400px; background: rgba(236,72,153,0.12); top: 35%; left: 55%; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(124,58,237,0.14);
+      border: 1px solid rgba(124,58,237,0.32);
+      border-radius: 50px;
+      padding: 8px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #A78BFA;
+      margin-bottom: 28px;
+    }
+
+    .hero-badge span {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #A78BFA;
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .hero h1 {
+      font-size: clamp(44px, 6.5vw, 82px);
+      font-weight: 900;
+      line-height: 1.06;
+      letter-spacing: -2.5px;
+      margin-bottom: 20px;
+      max-width: 880px;
+    }
+
+    .grad-text {
+      background: linear-gradient(135deg, #A78BFA 0%, #60A5FA 50%, #F472B6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-tagline {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(20px, 2.8vw, 28px);
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--text2);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 72px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--purple), var(--blue));
+      color: var(--white);
+      text-decoration: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 700;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 30px rgba(124,58,237,0.40);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(124,58,237,0.55); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--glass);
+      color: var(--white);
+      text-decoration: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 600;
+      border: 1px solid var(--glass-border);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.09); transform: translateY(-2px); }
+
+    /* ─── Phone cluster ─────────────────────────────────────────── */
+    .phones {
+      position: relative;
+      height: 580px;
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .phone {
+      position: absolute;
+      width: 226px;
+      border-radius: 38px;
+      border: 7px solid rgba(255,255,255,0.13);
+      background: #0f1323;
+      overflow: hidden;
+    }
+
+    .phone img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    .phone-center {
+      width: 248px;
+      height: 536px;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
+      z-index: 3;
+      border-color: rgba(255,255,255,0.20);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.08),
+        0 30px 80px rgba(0,0,0,0.6),
+        0 0 60px rgba(124,58,237,0.30);
+    }
+
+    .phone-left {
+      height: 490px;
+      left: 50%;
+      margin-left: -218px;
+      top: 55px;
+      z-index: 2;
+      transform: rotate(-7deg);
+      opacity: 0.80;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.55);
+    }
+
+    .phone-right {
+      height: 490px;
+      left: 50%;
+      margin-left: -8px;
+      top: 55px;
+      z-index: 2;
+      transform: rotate(7deg);
+      opacity: 0.80;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.55);
+    }
+
+    /* Notch */
+    .phone::after {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 22px;
+      background: #0f1323;
+      border-radius: 0 0 16px 16px;
+      z-index: 4;
+    }
+
+    /* ─── Stats bar ─────────────────────────────────────────────── */
+    .stats-wrap {
+      position: relative;
+      z-index: 1;
+      padding: 0 24px 100px;
+    }
+
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      max-width: 660px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 22px;
+      padding: 28px 40px;
+      backdrop-filter: blur(20px);
+    }
+
+    .stat {
+      flex: 1;
+      text-align: center;
+      padding: 0 20px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .stat:last-child { border-right: none; }
+
+    .stat-value {
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #A78BFA, #60A5FA);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 44px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text2);
+      font-weight: 500;
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ─── Sections ───────────────────────────────────────────────── */
+    .section {
+      position: relative;
+      z-index: 1;
+      padding: 90px 24px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #A78BFA;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 4vw, 50px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 17px;
+      color: var(--text2);
+      line-height: 1.7;
+      max-width: 540px;
+    }
+
+    .section-header { margin-bottom: 56px; }
+
+    .divider {
+      max-width: 1120px;
+      margin: 0 auto;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+    }
+
+    /* ─── Features grid ─────────────────────────────────────────── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .feat-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 22px;
+      padding: 32px 28px;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feat-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(124,58,237,0.35);
+      box-shadow: 0 16px 50px rgba(124,58,237,0.15);
+    }
+
+    .feat-icon {
+      width: 52px; height: 52px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .feat-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .feat-desc  { font-size: 14px; color: var(--text2); line-height: 1.65; }
+
+    /* ─── How it works ──────────────────────────────────────────── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      position: relative;
+    }
+
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 34px;
+      left: 16%;
+      right: 16%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(124,58,237,0.5), rgba(59,130,246,0.5), transparent);
+    }
+
+    .step { text-align: center; padding: 36px 20px; }
+
+    .step-num {
+      width: 68px; height: 68px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple), var(--blue));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 900;
+      margin: 0 auto 24px;
+      box-shadow: 0 8px 28px rgba(124,58,237,0.4);
+    }
+
+    .step h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .step p  { font-size: 14px; color: var(--text2); line-height: 1.65; }
+
+    /* ─── App showcase with real screenshots ────────────────────── */
+    .showcase-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      margin-bottom: 100px;
+    }
+
+    .showcase-row.reverse { direction: rtl; }
+    .showcase-row.reverse > * { direction: ltr; }
+
+    .showcase-text .section-sub { margin-bottom: 24px; }
+
+    .showcase-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(124,58,237,0.10);
+      border: 1px solid rgba(124,58,237,0.22);
+      border-radius: 50px;
+      padding: 7px 15px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #C4B5FD;
+    }
+
+    .showcase-phones {
+      position: relative;
+      height: 500px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .ss-phone {
+      position: absolute;
+      width: 210px;
+      border-radius: 34px;
+      border: 6px solid rgba(255,255,255,0.12);
+      background: #0f1323;
+      overflow: hidden;
+    }
+
+    .ss-phone img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    .ss-phone::after {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px; height: 20px;
+      background: #0f1323;
+      border-radius: 0 0 12px 12px;
+      z-index: 2;
+    }
+
+    .ss-phone-1 {
+      height: 455px;
+      left: 50%;
+      margin-left: -180px;
+      top: 20px;
+      z-index: 2;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+    }
+
+    .ss-phone-2 {
+      height: 430px;
+      left: 50%;
+      margin-left: -60px;
+      top: 40px;
+      z-index: 1;
+      box-shadow: 0 20px 50px rgba(124,58,237,0.25);
+      border-color: rgba(124,58,237,0.30);
+    }
+
+    /* ─── Categories ─────────────────────────────────────────────── */
+    .cats-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+    }
+
+    .cat-item {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 20px 12px;
+      text-align: center;
+      transition: transform 0.2s, background 0.2s, border-color 0.2s;
+    }
+    .cat-item:hover {
+      transform: translateY(-4px);
+      background: rgba(124,58,237,0.09);
+      border-color: rgba(124,58,237,0.28);
+    }
+
+    .cat-emoji { font-size: 26px; display: block; margin-bottom: 7px; }
+    .cat-label { font-size: 11px; font-weight: 600; color: var(--text2); }
+
+    /* ─── CTA section ────────────────────────────────────────────── */
+    .cta-section {
+      text-align: center;
+      padding: 60px 24px 100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-card {
+      max-width: 740px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, rgba(124,58,237,0.13), rgba(59,130,246,0.08));
+      border: 1px solid rgba(124,58,237,0.25);
+      border-radius: 36px;
+      padding: 72px 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at top, rgba(124,58,237,0.10) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .cta-card h2 {
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 900;
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    .cta-card p {
+      font-size: 16px;
+      color: var(--text2);
+      margin-bottom: 36px;
+      line-height: 1.65;
+      position: relative;
+    }
+
+    .coming-label {
+      display: inline-block;
+      background: rgba(124,58,237,0.18);
+      border: 1px solid rgba(124,58,237,0.38);
+      color: #A78BFA;
+      padding: 5px 15px;
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .appstore-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255,255,255,0.92);
+      color: #000;
+      text-decoration: none;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.28);
+      opacity: 0.50;
+      cursor: not-allowed;
+      pointer-events: none;
+      position: relative;
+    }
+
+    .appstore-btn svg { width: 44px; height: 44px; }
+    .appstore-btn .abt { font-size: 11px; font-weight: 500; opacity: 0.65; display: block; }
+    .appstore-btn .abm { font-size: 21px; font-weight: 800; display: block; line-height: 1.2; }
+
+    /* ─── Cyprus map section ────────────────────────────────────── */
+    .cyprus-section {
+      position: relative;
+      z-index: 1;
+      padding: 90px 24px;
+    }
+
+    .cyprus-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .cyprus-map-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cyprus-map-img {
+      width: 100%;
+      max-width: 560px;
+      height: auto;
+      position: relative;
+      z-index: 1;
+      border-radius: 16px;
+      filter: drop-shadow(0 0 40px rgba(124,58,237,0.35));
+    }
+
+    @media (max-width: 960px) {
+      .cyprus-inner { grid-template-columns: 1fr; }
+      .cyprus-map-wrap { margin-top: 32px; }
+      .cyprus-map-img { max-width: 380px; }
+    }
+
+    /* ─── Footer ─────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--glass-border);
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-logo {
+      font-size: 17px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #A78BFA, #60A5FA);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .footer-links { display: flex; gap: 28px; list-style: none; }
+    .footer-links a {
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: 12px; color: var(--text3); }
+
+    /* ─── Scroll fade-in ─────────────────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* Stagger children */
+    .stagger > * {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .stagger.visible > *:nth-child(1) { opacity:1; transform:translateY(0); transition-delay:0s; }
+    .stagger.visible > *:nth-child(2) { opacity:1; transform:translateY(0); transition-delay:.08s; }
+    .stagger.visible > *:nth-child(3) { opacity:1; transform:translateY(0); transition-delay:.16s; }
+    .stagger.visible > *:nth-child(4) { opacity:1; transform:translateY(0); transition-delay:.24s; }
+    .stagger.visible > *:nth-child(5) { opacity:1; transform:translateY(0); transition-delay:.32s; }
+    .stagger.visible > *:nth-child(6) { opacity:1; transform:translateY(0); transition-delay:.40s; }
+
+    /* ─── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 960px) {
+      nav { padding: 14px 20px; }
+      .nav-links li:not(:last-child) { display: none; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .cats-grid { grid-template-columns: repeat(3, 1fr); }
+      .steps { grid-template-columns: 1fr; }
+      .steps::before { display: none; }
+      .showcase-row { grid-template-columns: 1fr; }
+      .showcase-row.reverse { direction: ltr; }
+      .showcase-phones { display: none; }
+      footer { flex-direction: column; gap: 18px; text-align: center; }
+      .stats-bar { flex-wrap: wrap; gap: 0; }
+      .stat { min-width: 50%; border-right: none; padding: 16px 0; }
+    }
+
+    @media (max-width: 600px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .cats-grid { grid-template-columns: repeat(3, 1fr); }
+      .phone-left, .phone-right { display: none; }
+      .cta-card { padding: 44px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ─────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-logo">MUXTI</div>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#explore">Browse</a></li>
+    <li><a href="#download" class="nav-cta">Get the App</a></li>
+  </ul>
+</nav>
+
+<!-- ── Hero ───────────────────────────────────────────────────── -->
+<div class="hero">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="hero-badge"><span></span> 🇨🇾 The marketplace, built for Cyprus</div>
+
+  <h1>
+    Buy, sell &amp; trade<br/>
+    <span class="grad-text">anything in Cyprus</span>
+  </h1>
+
+  <span class="hero-tagline">Cyprus's premier marketplace.</span>
+
+  <p class="hero-sub">
+    MUXTI connects buyers and sellers across Cyprus — from electronics and fashion to cars and services. Find great deals near you.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#download" class="btn-primary js-appstore-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" viewBox="0 0 16 16"><path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/></svg>
+      Download on iOS
+    </a>
+    <a href="#features" class="btn-secondary">See how it works ↓</a>
+  </div>
+
+  <!-- Phone mockups with real screenshots -->
+  <div class="phones">
+    <!-- Left: MacBook Pro listing detail — stunning purple/blue photo -->
+    <div class="phone phone-left">
+      <img src="assets/detail_mac.webp" alt="MUXTI listing detail" loading="lazy" />
+    </div>
+    <!-- Center: Home feed — featured + trending -->
+    <div class="phone phone-center">
+      <img src="assets/home_dark.webp" alt="MUXTI home feed" loading="eager" />
+    </div>
+    <!-- Right: Search screen -->
+    <div class="phone phone-right">
+      <img src="assets/search.webp" alt="MUXTI search" loading="lazy" />
+    </div>
+  </div>
+</div>
+
+<!-- ── Stats bar ──────────────────────────────────────────────── -->
+<div class="stats-wrap">
+  <div class="stats-bar fade-in">
+    <div class="stat"><span class="stat-value">11</span><span class="stat-label">Categories</span></div>
+    <div class="stat"><span class="stat-value">5</span><span class="stat-label">Listing Types</span></div>
+    <div class="stat">
+      <span class="stat-value" style="-webkit-text-fill-color:initial;background:none;">
+        <img src="https://flagcdn.com/w80/cy.png" srcset="https://flagcdn.com/w160/cy.png 2x" alt="Cyprus flag" width="56" height="37" style="border-radius:4px;box-shadow:0 1px 6px rgba(0,0,0,0.4);display:block;"/>
+      </span>
+      <span class="stat-label">Cyprus Only</span>
+    </div>
+    <div class="stat"><span class="stat-value">Free</span><span class="stat-label">To Download</span></div>
+  </div>
+</div>
+
+<!-- ── Features ───────────────────────────────────────────────── -->
+<div class="section" id="features">
+  <div class="section-header fade-in">
+    <span class="section-label">Features</span>
+    <h2 class="section-title">Everything you need,<br/>in one place</h2>
+    <p class="section-sub">MUXTI is built for Cyprus — fast, local, and designed to make buying and selling feel effortless.</p>
+  </div>
+
+  <div class="features-grid stagger">
+    <div class="feat-card">
+      <div class="feat-icon" style="background:rgba(236,72,153,0.14)">🏷️</div>
+      <h3 class="feat-title">Buy &amp; Sell</h3>
+      <p class="feat-desc">List your items in minutes. Add photos, set a price, pick a city — you're live instantly. Electronics, fashion, vehicles, and more.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon" style="background:rgba(20,184,166,0.14)">🔄</div>
+      <h3 class="feat-title">Trade</h3>
+      <p class="feat-desc">Don't just sell — swap. Post a "For Trade" listing and propose item exchanges directly with other users. No money required.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon" style="background:rgba(245,158,11,0.14)">⭐</div>
+      <h3 class="feat-title">Featured &amp; Trending</h3>
+      <p class="feat-desc">A curated feed of featured listings and trending items sorted by popularity. Find what's hot right now without digging.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon" style="background:rgba(59,130,246,0.14)">💬</div>
+      <h3 class="feat-title">Direct Messaging</h3>
+      <p class="feat-desc">Chat instantly with buyers or sellers. No phone numbers until you're ready. Negotiate, arrange, and seal the deal in-app.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon" style="background:rgba(124,58,237,0.14)">💰</div>
+      <h3 class="feat-title">MUXTI Wallet</h3>
+      <p class="feat-desc">Top up your in-app wallet and spend on boosts in one tap. No card re-entry at checkout — just credits and speed.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon" style="background:rgba(236,72,153,0.14)">🚀</div>
+      <h3 class="feat-title">Boost Listings</h3>
+      <p class="feat-desc">Quick, Smart, or Max — choose your boost level and get placed at the top of the feed where buyers see you first.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ── How it works ───────────────────────────────────────────── -->
+<div class="section" id="how">
+  <div class="section-header fade-in" style="text-align:center">
+    <span class="section-label">How it works</span>
+    <h2 class="section-title">Up and selling in minutes</h2>
+    <p class="section-sub" style="margin:0 auto">No complicated setup. Open the app, post your item, and start getting offers.</p>
+  </div>
+
+  <div class="steps stagger">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Create your account</h3>
+      <p>Sign in with just your email — no password needed. One-time code, instant access. That's it.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Post your listing</h3>
+      <p>Add photos, set a price, pick a category and city. Your listing goes live on the feed immediately.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Connect &amp; close</h3>
+      <p>Buyers message you in-app. Chat, agree on a price, meet up. Simple and safe.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ── App screenshots showcase ──────────────────────────────── -->
+<div class="section" id="explore">
+  <!-- Row 1: Feed + highlight -->
+  <div class="showcase-row fade-in">
+    <div class="showcase-text">
+      <span class="section-label">Browse</span>
+      <h2 class="section-title">A feed that keeps you coming back</h2>
+      <p class="section-sub">Featured listings, trending items, smart category filters. Scroll, discover, save — all in one beautiful feed.</p>
+      <div class="showcase-chips">
+        <span class="chip">⭐ Featured carousel</span>
+        <span class="chip">🔥 Trending</span>
+        <span class="chip">🏷️ Category pills</span>
+        <span class="chip">❤️ Save for later</span>
+      </div>
+    </div>
+    <div class="showcase-phones">
+      <div class="ss-phone ss-phone-1">
+        <img src="assets/home_light.webp" alt="MUXTI home feed light theme" loading="lazy" />
+      </div>
+      <div class="ss-phone ss-phone-2">
+        <img src="assets/home_dark.webp" alt="MUXTI home feed dark theme" loading="lazy" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 2: Listing detail -->
+  <div class="showcase-row reverse fade-in">
+    <div class="showcase-text">
+      <span class="section-label">Listings</span>
+      <h2 class="section-title">Every detail, beautifully presented</h2>
+      <p class="section-sub">Full-bleed photos, pricing, views, likes, condition, specs — plus a one-tap Chat button to reach the seller instantly.</p>
+      <div class="showcase-chips">
+        <span class="chip">📸 Full-bleed photos</span>
+        <span class="chip">👁️ Live view count</span>
+        <span class="chip">📋 Full specs</span>
+        <span class="chip">💬 One-tap chat</span>
+      </div>
+    </div>
+    <div class="showcase-phones">
+      <div class="ss-phone ss-phone-1">
+        <img src="assets/detail_mac.webp" alt="MUXTI MacBook listing" loading="lazy" />
+      </div>
+      <div class="ss-phone ss-phone-2">
+        <img src="assets/detail_ipad.webp" alt="MUXTI iPad listing" loading="lazy" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 3: Search + Post -->
+  <div class="showcase-row fade-in">
+    <div class="showcase-text">
+      <span class="section-label">Search &amp; Post</span>
+      <h2 class="section-title">Find it. List it. Done.</h2>
+      <p class="section-sub">Search with smart filters, save searches with price alerts, and post a new listing in under 60 seconds.</p>
+      <div class="showcase-chips">
+        <span class="chip">🔔 Saved search alerts</span>
+        <span class="chip">🗂️ Filter by type</span>
+        <span class="chip">📍 City-based</span>
+        <span class="chip">⚡ Instant publish</span>
+      </div>
+    </div>
+    <div class="showcase-phones">
+      <div class="ss-phone ss-phone-1">
+        <img src="assets/search.webp" alt="MUXTI search" loading="lazy" />
+      </div>
+      <div class="ss-phone ss-phone-2">
+        <img src="assets/post.webp" alt="MUXTI post listing" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ── Categories ─────────────────────────────────────────────── -->
+<div class="section" id="categories">
+  <div class="section-header fade-in">
+    <span class="section-label">Categories</span>
+    <h2 class="section-title">Find anything in Cyprus</h2>
+    <p class="section-sub">If it's in Cyprus, it's on MUXTI. 11 categories, 5 listing types — from cars to Golden Retrievers.</p>
+  </div>
+
+  <div class="cats-grid stagger">
+    <div class="cat-item"><span class="cat-emoji">🚗</span><span class="cat-label">Vehicles</span></div>
+    <div class="cat-item"><span class="cat-emoji">📱</span><span class="cat-label">Electronics</span></div>
+    <div class="cat-item"><span class="cat-emoji">🛋️</span><span class="cat-label">Home</span></div>
+    <div class="cat-item"><span class="cat-emoji">👕</span><span class="cat-label">Fashion</span></div>
+    <div class="cat-item"><span class="cat-emoji">✨</span><span class="cat-label">Beauty</span></div>
+    <div class="cat-item"><span class="cat-emoji">🏃</span><span class="cat-label">Sports</span></div>
+    <div class="cat-item"><span class="cat-emoji">🔧</span><span class="cat-label">Services</span></div>
+    <div class="cat-item"><span class="cat-emoji">🎵</span><span class="cat-label">Entertainment</span></div>
+    <div class="cat-item"><span class="cat-emoji">🐾</span><span class="cat-label">Pets</span></div>
+    <div class="cat-item"><span class="cat-emoji">💼</span><span class="cat-label">Jobs</span></div>
+    <div class="cat-item"><span class="cat-emoji">📦</span><span class="cat-label">Misc</span></div>
+    <div class="cat-item" style="background:rgba(124,58,237,0.10);border-color:rgba(124,58,237,0.24)">
+      <span class="cat-emoji">🎁</span><span class="cat-label" style="color:#A78BFA">Free</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── Cyprus Map Section ─────────────────────────────────────── -->
+<div class="cyprus-section">
+  <div class="cyprus-inner fade-in">
+    <div class="cyprus-text">
+      <span class="section-label">Local. Real. Cyprus.</span>
+      <h2 class="section-title" style="max-width:420px">Built right here,<br/>for right here</h2>
+      <p class="section-sub" style="max-width:400px">MUXTI isn't a global platform trying to work in Cyprus. It was built from the ground up, in Cyprus, for the people who live here — with local cities, local currency, and a local mindset.</p>
+      <div class="showcase-chips" style="margin-top:28px">
+        <span class="chip">📍 Nicosia</span>
+        <span class="chip">📍 Limassol</span>
+        <span class="chip">📍 Larnaca</span>
+        <span class="chip">📍 Paphos</span>
+        <span class="chip">📍 Famagusta</span>
+      </div>
+    </div>
+    <div class="cyprus-map-wrap">
+      <img class="cyprus-map-img" src="assets/cyprus_map.webp" alt="Cyprus — the island MUXTI calls home" loading="lazy"/>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ── Download CTA ────────────────────────────────────────────── -->
+<div class="cta-section" id="download">
+  <div class="cta-card fade-in">
+    <div class="coming-label">Coming to App Store</div>
+    <h2>Ready to start<br/><span class="grad-text">buying &amp; selling?</span></h2>
+    <p>MUXTI is arriving on the App Store soon.<br/>Cyprus's premier marketplace — right in your pocket.</p>
+    <a href="#" class="appstore-btn js-appstore-link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <div>
+        <span class="abt">Download on the</span>
+        <span class="abm">App Store</span>
+      </div>
+    </a>
+    <p style="font-size:12px;margin-top:20px;margin-bottom:0;color:rgba(255,255,255,0.28)">iOS · Cyprus only · Free download</p>
+  </div>
+</div>
+
+<!-- ── Footer ──────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-logo">MUXTI</div>
+  <ul class="footer-links">
+    <li><a href="https://garbist.github.io/muxti-support" target="_blank">Support</a></li>
+    <li><a href="https://garbist.github.io/muxti-support/terms.html" target="_blank" rel="noopener">Terms</a></li>
+    <li><a href="https://garbist.github.io/muxti-support/privacy.html" target="_blank" rel="noopener">Privacy</a></li>
+  </ul>
+  <span class="footer-copy">© 2026 MUXTI. Cyprus.</span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.fade-in, .stagger').forEach(el => observer.observe(el));
+
+  // ─── App Store URL ─────────────────────────────────────────────────
+  // UPDATE THIS ONE LINE when the app is approved on the App Store.
+  // Both the hero button and the CTA button update automatically.
+  const APP_STORE_URL = '#'; // e.g. 'https://apps.apple.com/cy/app/muxti/id1234567890'
+
+  document.querySelectorAll('.js-appstore-link').forEach(el => {
+    if (APP_STORE_URL !== '#') {
+      el.href = APP_STORE_URL;
+      el.style.opacity   = '1';
+      el.style.cursor    = 'pointer';
+      el.style.pointerEvents = 'auto';
+    }
+  });
+</script>
+
+</body>
+</html>
