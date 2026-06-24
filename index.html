@@ -819,6 +819,26 @@
         width: 136px;
       }
     }
+
+    /* ─── Large monitor — bigger phones for 1440p+ screens ─────── */
+    @media (min-width: 1400px) {
+      .phones {
+        height: 660px;
+      }
+      .phone {
+        width: 272px;
+      }
+      .phone-center {
+        width: 310px;
+      }
+      .phone-left  { margin-left: -268px; top: 60px; }
+      .phone-right { margin-left: -8px;   top: 60px; }
+
+      .showcase-phones { height: 580px; }
+      .ss-phone { width: 255px; }
+      .ss-phone-1 { margin-left: -220px; }
+      .ss-phone-2 { margin-left: -72px; }
+    }
   </style>
 </head>
 <body>
@@ -844,7 +864,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="blob blob-2"></div>
   <div class="blob blob-3"></div>
 
-  <div class="hero-badge"><span></span> 🇨🇾 The marketplace, built for Cyprus</div>
+  <div class="hero-badge"><span></span> <img src="https://flagcdn.com/w40/cy.png" srcset="https://flagcdn.com/w80/cy.png 2x" alt="Cyprus flag" width="20" height="13" style="border-radius:2px;vertical-align:middle;display:inline-block;margin:0 2px;"> The marketplace, built for Cyprus</div>
 
   <h1>
     Buy, sell &amp; trade<br/>
