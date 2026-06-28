@@ -777,18 +777,25 @@
       .steps::before { display: none; }
       .showcase-row { grid-template-columns: 1fr; margin-bottom: 56px; }
       .showcase-row.reverse { direction: ltr; }
-      /* Show one phone per showcase section instead of hiding them */
+      /* Show both phones side by side on mobile */
       .showcase-phones {
-        height: 320px;
+        height: 360px;
         justify-content: center;
       }
-      .ss-phone-2 { display: none; }
+      .ss-phone-2 { display: block; }
       .ss-phone-1 {
-        position: relative;
-        left: auto;
-        margin-left: 0;
-        top: 0;
-        width: 148px;
+        position: absolute;
+        left: 50%;
+        margin-left: -155px;
+        top: 10px;
+        width: 135px;
+      }
+      .ss-phone-2 {
+        position: absolute;
+        left: 50%;
+        margin-left: -10px;
+        top: 28px;
+        width: 135px;
       }
       .section { padding: 60px 20px; }
       .stats-wrap { padding-bottom: 60px; }
@@ -818,6 +825,11 @@
       .phone-center {
         width: 136px;
       }
+
+      /* Showcase phones — scale down further for small phones */
+      .showcase-phones { height: 300px; }
+      .ss-phone-1 { width: 112px; margin-left: -126px; }
+      .ss-phone-2 { width: 112px; margin-left: -8px; }
     }
 
     /* ─── Large monitor — bigger phones for 1440p+ screens ─────── */
