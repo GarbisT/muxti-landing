@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html-root">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -9,8 +9,18 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Inter', sans-serif; background: #0D1129; color: #fff; min-height: 100vh; }
     .wrap { max-width: 720px; margin: 0 auto; padding: 80px 24px 100px; }
-    .back { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; font-weight: 500; margin-bottom: 48px; transition: color 0.2s; }
+
+    /* top bar */
+    .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 48px; }
+    .back { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
     .back:hover { color: #fff; }
+
+    /* language toggle */
+    .lang-toggle { display: inline-flex; align-items: center; gap: 2px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; padding: 3px; }
+    .lang-btn { display: flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 999px; border: none; background: transparent; color: rgba(255,255,255,0.5); font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.18s; font-family: 'Inter', sans-serif; letter-spacing: 0.02em; }
+    .lang-btn.active { background: rgba(167,139,250,0.25); color: #fff; }
+    .lang-btn:hover:not(.active) { color: rgba(255,255,255,0.8); }
+
     .logo { font-size: 18px; font-weight: 900; background: linear-gradient(135deg,#A78BFA,#60A5FA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; }
     h1 { font-size: 36px; font-weight: 900; letter-spacing: -1px; margin-bottom: 8px; }
     .updated { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 48px; }
@@ -19,113 +29,262 @@
     ul { padding-left: 20px; }
     a { color: #60A5FA; }
     hr { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 40px 0; }
+
+    [data-lang] { display: none; }
+    [data-lang].active { display: block; }
   </style>
 </head>
 <body>
 <div class="wrap">
-  <a href="index.html" class="back">← Back to MUXTI</a>
+
+  <div class="topbar">
+    <a href="index.html" class="back">
+      <span data-lang="en" class="active">← Back to MUXTI</span>
+      <span data-lang="el">← Πίσω στο MUXTI</span>
+    </a>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      <button class="lang-btn" id="btn-el" onclick="setLang('el')">🇬🇷 EL</button>
+    </div>
+  </div>
+
   <div class="logo">MUXTI</div>
-  <h1>Terms of Service</h1>
-  <p class="updated">Last updated: July 2026</p>
 
-  <p style="font-size:13px;background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.25);border-radius:8px;padding:12px 16px;color:rgba(255,255,255,0.6);margin-bottom:0;">
-    These Terms govern all current and future listing categories on MUXTI, including categories that may not yet be active in the App. Provisions for forthcoming categories apply from the date those categories are made available to users.
-  </p>
+  <!-- ═══ ENGLISH ═══ -->
+  <div data-lang="en" class="active">
+    <h1>Terms of Service</h1>
+    <p class="updated">Last updated: July 2026</p>
 
-  <h2>1. Acceptance of Terms</h2>
-  <p>By downloading, accessing, or using the MUXTI application ("App"), you agree to be bound by these Terms of Service. If you do not agree, do not use the App.</p>
+    <p style="font-size:13px;background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.25);border-radius:8px;padding:12px 16px;color:rgba(255,255,255,0.6);margin-bottom:0;">
+      These Terms govern all current and future listing categories on MUXTI, including categories that may not yet be active in the App. Provisions for forthcoming categories apply from the date those categories are made available to users.
+    </p>
 
-  <h2>2. Description of Service</h2>
-  <p>MUXTI is a peer-to-peer marketplace platform exclusively serving users in Cyprus. The App allows registered users to post, browse, and respond to listings for items for sale, trade, rent, or hire.</p>
+    <h2>1. Acceptance of Terms</h2>
+    <p>By downloading, accessing, or using the MUXTI application ("App"), you agree to be bound by these Terms of Service. If you do not agree, do not use the App.</p>
 
-  <h2>3. User Accounts</h2>
-  <p>You must be 18 years or older to use MUXTI. You are responsible for maintaining the security of your account and all activity that occurs under it. You agree to provide accurate information when registering.</p>
+    <h2>2. Description of Service</h2>
+    <p>MUXTI is a peer-to-peer marketplace platform exclusively serving users in Cyprus. The App allows registered users to post, browse, and respond to listings for items for sale, trade, rent, or hire.</p>
 
-  <h2>4. User Listings</h2>
-  <p>You are solely responsible for the content, accuracy, and legality of your listings. All listings must comply with the laws and regulations of the Republic of Cyprus.</p>
-  <p><strong>The following items are strictly prohibited on MUXTI:</strong></p>
-  <ul>
-    <li>Tobacco products, cigarettes, electronic cigarettes (vapes), e-liquids, and related smoking accessories</li>
-    <li>Alcohol and alcoholic beverages</li>
-    <li>Illegal drugs, controlled substances, and drug paraphernalia</li>
-    <li>Prescription or non-prescription medicinal products</li>
-    <li>Firearms, ammunition, and weapons of any kind (including knives and bladed articles)</li>
-    <li>Fireworks and pyrotechnics</li>
-    <li>Counterfeit, pirated, or stolen goods</li>
-    <li>Adult or sexually explicit content</li>
-    <li>Endangered or protected wildlife, animal parts, or CITES-listed species products</li>
-    <li>Hazardous substances, illegal gases, or dangerous chemicals</li>
-    <li>Food, drinks, and dietary supplements</li>
-    <li>Personal hygiene devices</li>
-    <li>Currency (except for numismatic/collector purposes), gift cards, vouchers, or tickets</li>
-    <li>Online game accounts or digital platform items</li>
-    <li>Any item whose sale is prohibited under the laws of the Republic of Cyprus</li>
-  </ul>
-  <p>MUXTI reserves the right to remove any listing that violates these terms without notice, and to apply strikes or suspend accounts where violations occur.</p>
+    <h2>3. User Accounts</h2>
+    <p>You must be 18 years or older to use MUXTI. You are responsible for maintaining the security of your account and all activity that occurs under it. You agree to provide accurate information when registering.</p>
 
-  <h2>5. Transactions</h2>
-  <p>MUXTI is a discovery and communication platform only. All transactions are conducted between users directly. MUXTI is not a party to any transaction and accepts no liability for the quality, safety, or legality of items listed.</p>
+    <h2>4. User Listings</h2>
+    <p>You are solely responsible for the content, accuracy, and legality of your listings. All listings must comply with the laws and regulations of the Republic of Cyprus.</p>
+    <p><strong>The following items are strictly prohibited on MUXTI:</strong></p>
+    <ul>
+      <li>Tobacco products, cigarettes, electronic cigarettes (vapes), e-liquids, and related smoking accessories</li>
+      <li>Alcohol and alcoholic beverages</li>
+      <li>Illegal drugs, controlled substances, and drug paraphernalia</li>
+      <li>Prescription or non-prescription medicinal products</li>
+      <li>Firearms, ammunition, and weapons of any kind (including knives and bladed articles)</li>
+      <li>Fireworks and pyrotechnics</li>
+      <li>Counterfeit, pirated, or stolen goods</li>
+      <li>Adult or sexually explicit content</li>
+      <li>Endangered or protected wildlife, animal parts, or CITES-listed species products</li>
+      <li>Hazardous substances, illegal gases, or dangerous chemicals</li>
+      <li>Food, drinks, and dietary supplements</li>
+      <li>Personal hygiene devices</li>
+      <li>Currency (except for numismatic/collector purposes), gift cards, vouchers, or tickets</li>
+      <li>Online game accounts or digital platform items</li>
+      <li>Any item whose sale is prohibited under the laws of the Republic of Cyprus</li>
+    </ul>
+    <p>MUXTI reserves the right to remove any listing that violates these terms without notice, and to apply strikes or suspend accounts where violations occur.</p>
 
-  <h2>6. Payments and Wallet</h2>
-  <p>The MUXTI Wallet feature allows users to add credits for boosting listings. All payments are processed securely via Stripe. Credits are non-refundable once used. MUXTI reserves the right to adjust pricing at any time.</p>
+    <h2>5. Transactions</h2>
+    <p>MUXTI is a discovery and communication platform only. All transactions are conducted between users directly. MUXTI is not a party to any transaction and accepts no liability for the quality, safety, or legality of items listed.</p>
 
-  <h2>7. Prohibited Conduct</h2>
-  <ul>
-    <li>Posting false, misleading, or fraudulent listings</li>
-    <li>Harassing, threatening, or abusing other users</li>
-    <li>Attempting to circumvent the platform (e.g. redirecting users to external payment methods to avoid fees)</li>
-    <li>Using automated tools to scrape or interact with the platform</li>
-  </ul>
+    <h2>6. Payments and Wallet</h2>
+    <p>The MUXTI Wallet feature allows users to add credits for boosting listings. All payments are processed securely via Stripe. Credits are non-refundable once used. MUXTI reserves the right to adjust pricing at any time.</p>
 
-  <h2>8. Intellectual Property</h2>
-  <p>All content, branding, and technology within MUXTI is the property of its owners. You may not copy, reproduce, or distribute any part of the App without written permission.</p>
+    <h2>7. Prohibited Conduct</h2>
+    <ul>
+      <li>Posting false, misleading, or fraudulent listings</li>
+      <li>Harassing, threatening, or abusing other users</li>
+      <li>Attempting to circumvent the platform (e.g. redirecting users to external payment methods to avoid fees)</li>
+      <li>Using automated tools to scrape or interact with the platform</li>
+    </ul>
 
-  <h2>9. Limitation of Liability</h2>
-  <p>MUXTI is provided "as is" without warranties of any kind. To the fullest extent permitted by law, MUXTI shall not be liable for any indirect, incidental, or consequential damages arising from use of the App.</p>
+    <h2>8. Intellectual Property</h2>
+    <p>All content, branding, and technology within MUXTI is the property of its owners. You may not copy, reproduce, or distribute any part of the App without written permission.</p>
 
-  <h2>10. Changes to Terms</h2>
-  <p>We may update these Terms at any time. Continued use of the App after changes constitutes acceptance of the new Terms.</p>
+    <h2>9. Limitation of Liability</h2>
+    <p>MUXTI is provided "as is" without warranties of any kind. To the fullest extent permitted by law, MUXTI shall not be liable for any indirect, incidental, or consequential damages arising from use of the App.</p>
 
-  <h2>11. Contact</h2>
-  <p>For questions about these Terms, contact us at <a href="https://garbist.github.io/muxti-support">support</a> or via email at boogieapps.help@gmail.com.</p>
+    <h2>10. Changes to Terms</h2>
+    <p>We may update these Terms at any time. Continued use of the App after changes constitutes acceptance of the new Terms.</p>
 
-  <hr/>
+    <h2>11. Contact</h2>
+    <p>For questions about these Terms, contact us at <a href="https://garbist.github.io/muxti-support">support</a> or via email at boogieapps.help@gmail.com.</p>
 
-  <h2>12. Property Listings</h2>
+    <hr/>
 
-  <p>This section applies to any listing submitted to MUXTI that relates to real estate, whether for sale, rent, or any other property transaction. These rules apply from the date the Property category becomes available on MUXTI.</p>
+    <h2>12. Property Listings</h2>
+    <p>This section applies to any listing submitted to MUXTI that relates to real estate, whether for sale, rent, or any other property transaction. These rules apply from the date the Property category becomes available on MUXTI.</p>
 
-  <h2>12.1 MUXTI is an Advertising Platform — Not a Real Estate Agent</h2>
-  <p>MUXTI is a peer-to-peer advertising platform. We are not a licensed real estate agent or estate agency, and we do not act as one. We are not party to, and have no involvement in, any property transaction between a seller, landlord, buyer, or tenant. We do not arrange viewings, provide valuations, negotiate terms, or facilitate the transfer of property. No fiduciary, agency, or representative relationship of any kind exists between MUXTI and any user, property owner, developer, or real estate professional by virtue of a listing being published on the platform.</p>
+    <h2>12.1 MUXTI is an Advertising Platform — Not a Real Estate Agent</h2>
+    <p>MUXTI is a peer-to-peer advertising platform. We are not a licensed real estate agent or estate agency, and we do not act as one. We are not party to, and have no involvement in, any property transaction between a seller, landlord, buyer, or tenant. We do not arrange viewings, provide valuations, negotiate terms, or facilitate the transfer of property. No fiduciary, agency, or representative relationship of any kind exists between MUXTI and any user, property owner, developer, or real estate professional by virtue of a listing being published on the platform.</p>
 
-  <h2>12.2 Who May List a Property</h2>
-  <p>You may only submit a property listing on MUXTI if you are one of the following:</p>
-  <ul>
-    <li>The registered owner of the property</li>
-    <li>A licensed property developer acting in relation to a development you own or manage</li>
-    <li>A licensed real estate agent or assistant real estate agent registered under the applicable laws of the Republic of Cyprus</li>
-    <li>A duly authorised legal representative of the owner, holding a valid Power of Attorney that covers the right to advertise the property</li>
-    <li>A first-degree relative of the registered owner, acting with the owner's knowledge and consent</li>
-  </ul>
-  <p>By submitting a property listing, you confirm that you fall into one of the above categories and that your right to advertise the property is valid and current. MUXTI does not verify ownership or authorisation. Responsibility for the accuracy of this declaration rests entirely with you.</p>
+    <h2>12.2 Who May List a Property</h2>
+    <p>You may only submit a property listing on MUXTI if you are one of the following:</p>
+    <ul>
+      <li>The registered owner of the property</li>
+      <li>A licensed property developer acting in relation to a development you own or manage</li>
+      <li>A licensed real estate agent or assistant real estate agent registered under the applicable laws of the Republic of Cyprus</li>
+      <li>A duly authorised legal representative of the owner, holding a valid Power of Attorney that covers the right to advertise the property</li>
+      <li>A first-degree relative of the registered owner, acting with the owner's knowledge and consent</li>
+    </ul>
+    <p>By submitting a property listing, you confirm that you fall into one of the above categories and that your right to advertise the property is valid and current. MUXTI does not verify ownership or authorisation. Responsibility for the accuracy of this declaration rests entirely with you.</p>
 
-  <h2>12.3 Licensed Real Estate Agents</h2>
-  <p>If you are a licensed real estate agent or assistant real estate agent, you are required to include your licence number in every property listing you submit on MUXTI. You are responsible for ensuring that your activities on the platform comply with all applicable laws and regulations of the Republic of Cyprus, including but not limited to the Real Estate Agents Law No. 71(I)/2010, as amended, and any codes of conduct, circulars, or guidelines issued by the Real Estate Registration Council or any other competent authority. MUXTI does not verify licence numbers and accepts no liability for listings submitted by agents who are unlicensed or whose licence has lapsed.</p>
+    <h2>12.3 Licensed Real Estate Agents</h2>
+    <p>If you are a licensed real estate agent or assistant real estate agent, you are required to include your licence number in every property listing you submit on MUXTI. You are responsible for ensuring that your activities on the platform comply with all applicable laws and regulations of the Republic of Cyprus, including but not limited to the Real Estate Agents Law No. 71(I)/2010, as amended, and any codes of conduct, circulars, or guidelines issued by the Real Estate Registration Council or any other competent authority. MUXTI does not verify licence numbers and accepts no liability for listings submitted by agents who are unlicensed or whose licence has lapsed.</p>
 
-  <h2>12.4 Short-Term and Holiday Rentals</h2>
-  <p>If you list a property for short-term rental or as self-catering accommodation, you are responsible for ensuring that your property is registered in the Register of Self-Catering Accommodations maintained by the Deputy Ministry of Tourism of the Republic of Cyprus, as required under the Hotels and Tourist Accommodations Law No. 34(I)/2019 and its Schedules. Your valid registration number must be included in the description of your listing. Listings for self-catering accommodation that do not include a valid registration number may be removed without notice. MUXTI does not provide legal advice and accepts no responsibility for any fines, penalties, or regulatory action arising from non-compliance. If you are unsure whether your property falls under the scope of the relevant legislation, seek independent legal advice or contact the Deputy Ministry of Tourism directly.</p>
+    <h2>12.4 Short-Term and Holiday Rentals</h2>
+    <p>If you list a property for short-term rental or as self-catering accommodation, you are responsible for ensuring that your property is registered in the Register of Self-Catering Accommodations maintained by the Deputy Ministry of Tourism of the Republic of Cyprus, as required under the Hotels and Tourist Accommodations Law No. 34(I)/2019 and its Schedules. Your valid registration number must be included in the description of your listing. Listings for self-catering accommodation that do not include a valid registration number may be removed without notice. MUXTI does not provide legal advice and accepts no responsibility for any fines, penalties, or regulatory action arising from non-compliance. If you are unsure whether your property falls under the scope of the relevant legislation, seek independent legal advice or contact the Deputy Ministry of Tourism directly.</p>
 
-  <h2>12.5 Accuracy and Integrity of Listings</h2>
-  <p>You are solely responsible for ensuring that all information contained in your property listing — including but not limited to price, size, location, condition, legal status, and photographs — is accurate, complete, and not misleading at the time of publication. You must update or remove your listing promptly if any detail changes or the property is no longer available. MUXTI does not verify the content of property listings and accepts no liability for any loss or damage arising from inaccurate, incomplete, or misleading information.</p>
+    <h2>12.5 Accuracy and Integrity of Listings</h2>
+    <p>You are solely responsible for ensuring that all information contained in your property listing — including but not limited to price, size, location, condition, legal status, and photographs — is accurate, complete, and not misleading at the time of publication. You must update or remove your listing promptly if any detail changes or the property is no longer available. MUXTI does not verify the content of property listings and accepts no liability for any loss or damage arising from inaccurate, incomplete, or misleading information.</p>
 
-  <h2>12.6 Geographic Scope</h2>
-  <p>Property listings on MUXTI are limited to properties located within the Republic of Cyprus. Listings for properties located outside the Republic of Cyprus are not permitted and may be removed without notice.</p>
+    <h2>12.6 Geographic Scope</h2>
+    <p>Property listings on MUXTI are limited to properties located within the Republic of Cyprus. Listings for properties located outside the Republic of Cyprus are not permitted and may be removed without notice.</p>
 
-  <h2>12.7 No Liability for Transactions</h2>
-  <p>Any contact, negotiation, agreement, or transaction that takes place between users as a result of a property listing on MUXTI is entirely the responsibility of the parties involved. MUXTI is not liable for any loss, damage, dispute, or legal issue — including but not limited to title disputes, misrepresentation, failure to complete a transaction, or regulatory non-compliance — arising from or in connection with a property listing or any resulting interaction. Users are strongly encouraged to seek independent legal and financial advice before entering into any property transaction.</p>
+    <h2>12.7 No Liability for Transactions</h2>
+    <p>Any contact, negotiation, agreement, or transaction that takes place between users as a result of a property listing on MUXTI is entirely the responsibility of the parties involved. MUXTI is not liable for any loss, damage, dispute, or legal issue — including but not limited to title disputes, misrepresentation, failure to complete a transaction, or regulatory non-compliance — arising from or in connection with a property listing or any resulting interaction. Users are strongly encouraged to seek independent legal and financial advice before entering into any property transaction.</p>
 
-  <hr/>
-  <p style="font-size:13px;color:rgba(255,255,255,0.3)">© 2026 MUXTI. Cyprus.</p>
+    <hr/>
+    <p style="font-size:13px;color:rgba(255,255,255,0.3)">© 2026 MUXTI. Cyprus.</p>
+  </div>
+
+  <!-- ═══ GREEK ═══ -->
+  <div data-lang="el">
+    <h1>Όροι Χρήσης</h1>
+    <p class="updated">Τελευταία ενημέρωση: Ιούλιος 2026</p>
+
+    <p style="font-size:13px;background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.25);border-radius:8px;padding:12px 16px;color:rgba(255,255,255,0.6);margin-bottom:0;">
+      Οι παρόντες Όροι διέπουν όλες τις τρέχουσες και μελλοντικές κατηγορίες αγγελιών στο MUXTI, συμπεριλαμβανομένων κατηγοριών που ενδέχεται να μην είναι ακόμα ενεργές στην Εφαρμογή. Οι διατάξεις για μελλοντικές κατηγορίες ισχύουν από την ημερομηνία που αυτές γίνουν διαθέσιμες.
+    </p>
+
+    <h2>1. Αποδοχή Όρων</h2>
+    <p>Με τη λήψη, πρόσβαση ή χρήση της εφαρμογής MUXTI («Εφαρμογή»), συμφωνείτε να δεσμεύεστε από τους παρόντες Όρους Χρήσης. Εάν δεν συμφωνείτε, μην χρησιμοποιείτε την Εφαρμογή.</p>
+
+    <h2>2. Περιγραφή Υπηρεσίας</h2>
+    <p>Το MUXTI είναι μια πλατφόρμα αγοράς μεταξύ χρηστών (peer-to-peer) που εξυπηρετεί αποκλειστικά χρήστες στην Κύπρο. Η Εφαρμογή επιτρέπει στους εγγεγραμμένους χρήστες να δημοσιεύουν, να περιηγούνται και να ανταποκρίνονται σε αγγελίες για αντικείμενα προς πώληση, ανταλλαγή, ενοικίαση ή μίσθωση.</p>
+
+    <h2>3. Λογαριασμοί Χρηστών</h2>
+    <p>Πρέπει να είστε 18 ετών ή άνω για να χρησιμοποιήσετε το MUXTI. Είστε υπεύθυνοι για τη διατήρηση της ασφάλειας του λογαριασμού σας και για όλες τις δραστηριότητες που πραγματοποιούνται σε αυτόν. Συμφωνείτε να παρέχετε ακριβείς πληροφορίες κατά την εγγραφή.</p>
+
+    <h2>4. Αγγελίες Χρηστών</h2>
+    <p>Είστε αποκλειστικά υπεύθυνοι για το περιεχόμενο, την ακρίβεια και τη νομιμότητα των αγγελιών σας. Όλες οι αγγελίες πρέπει να συμμορφώνονται με τους νόμους και τους κανονισμούς της Κυπριακής Δημοκρατίας.</p>
+    <p><strong>Τα παρακάτω απαγορεύονται αυστηρά στο MUXTI:</strong></p>
+    <ul>
+      <li>Προϊόντα καπνού, τσιγάρα, ηλεκτρονικά τσιγάρα (vapes), υγρά αναπλήρωσης και σχετικά αξεσουάρ</li>
+      <li>Αλκοόλ και αλκοολούχα ποτά</li>
+      <li>Παράνομα ναρκωτικά, ελεγχόμενες ουσίες και συναφή αντικείμενα</li>
+      <li>Φαρμακευτικά προϊόντα με ή χωρίς συνταγή</li>
+      <li>Πυροβόλα όπλα, πυρομαχικά και όπλα κάθε είδους (συμπεριλαμβανομένων μαχαιριών)</li>
+      <li>Πυροτεχνήματα και πυροτεχνικά υλικά</li>
+      <li>Παραποιημένα, πειρατικά ή κλεμμένα αγαθά</li>
+      <li>Περιεχόμενο ενηλίκων ή σεξουαλικά ρητό υλικό</li>
+      <li>Απειλούμενα ή προστατευόμενα άγρια ζώα, ζωικά μέρη ή προϊόντα CITES</li>
+      <li>Επικίνδυνες ουσίες, παράνομα αέρια ή επικίνδυνα χημικά</li>
+      <li>Τρόφιμα, ποτά και διατροφικά συμπληρώματα</li>
+      <li>Συσκευές προσωπικής υγιεινής</li>
+      <li>Νόμισμα (εκτός αν είναι νομισματολογικής αξίας), δωροκάρτες, κουπόνια ή εισιτήρια</li>
+      <li>Λογαριασμοί διαδικτυακών παιχνιδιών ή ψηφιακά αντικείμενα πλατφορμών</li>
+      <li>Οποιοδήποτε αντικείμενο η πώληση του οποίου απαγορεύεται από τους νόμους της Κυπριακής Δημοκρατίας</li>
+    </ul>
+    <p>Το MUXTI διατηρεί το δικαίωμα να αφαιρεί αγγελίες που παραβιάζουν τους παρόντες όρους χωρίς προειδοποίηση, καθώς και να επιβάλλει ποινές ή να αναστέλλει λογαριασμούς σε περίπτωση παραβάσεων.</p>
+
+    <h2>5. Συναλλαγές</h2>
+    <p>Το MUXTI είναι αποκλειστικά πλατφόρμα ανακάλυψης και επικοινωνίας. Όλες οι συναλλαγές πραγματοποιούνται απευθείας μεταξύ χρηστών. Το MUXTI δεν είναι μέρος σε καμία συναλλαγή και δεν φέρει ευθύνη για την ποιότητα, ασφάλεια ή νομιμότητα των αντικειμένων που καταχωρίζονται.</p>
+
+    <h2>6. Πληρωμές και Πορτοφόλι</h2>
+    <p>Η λειτουργία Πορτοφολιού MUXTI επιτρέπει στους χρήστες να προσθέτουν πιστώσεις για την ενίσχυση αγγελιών. Όλες οι πληρωμές επεξεργάζονται με ασφάλεια μέσω Stripe. Οι πιστώσεις δεν επιστρέφονται μετά τη χρήση. Το MUXTI διατηρεί το δικαίωμα να τροποποιεί τις τιμές ανά πάσα στιγμή.</p>
+
+    <h2>7. Απαγορευμένη Συμπεριφορά</h2>
+    <ul>
+      <li>Δημοσίευση ψευδών, παραπλανητικών ή δόλιων αγγελιών</li>
+      <li>Παρενόχληση, απειλές ή κακοποίηση άλλων χρηστών</li>
+      <li>Απόπειρα παράκαμψης της πλατφόρμας (π.χ. κατεύθυνση χρηστών σε εξωτερικές μεθόδους πληρωμής)</li>
+      <li>Χρήση αυτοματοποιημένων εργαλείων για άντληση δεδομένων ή αλληλεπίδραση με την πλατφόρμα</li>
+    </ul>
+
+    <h2>8. Πνευματική Ιδιοκτησία</h2>
+    <p>Όλο το περιεχόμενο, η επωνυμία και η τεχνολογία του MUXTI αποτελούν ιδιοκτησία των δικαιούχων. Δεν επιτρέπεται η αντιγραφή, αναπαραγωγή ή διανομή οποιουδήποτε τμήματος της Εφαρμογής χωρίς γραπτή άδεια.</p>
+
+    <h2>9. Περιορισμός Ευθύνης</h2>
+    <p>Το MUXTI παρέχεται «ως έχει» χωρίς εγγυήσεις οποιουδήποτε είδους. Στο μέγιστο βαθμό που επιτρέπεται από το νόμο, το MUXTI δεν ευθύνεται για έμμεσες, τυχαίες ή παρεπόμενες ζημίες που προκύπτουν από τη χρήση της Εφαρμογής.</p>
+
+    <h2>10. Αλλαγές στους Όρους</h2>
+    <p>Ενδέχεται να ενημερώνουμε τους παρόντες Όρους ανά πάσα στιγμή. Η συνέχιση χρήσης της Εφαρμογής μετά από αλλαγές συνιστά αποδοχή των νέων Όρων.</p>
+
+    <h2>11. Επικοινωνία</h2>
+    <p>Για ερωτήσεις σχετικά με τους παρόντες Όρους, επικοινωνήστε μαζί μας στο <a href="https://garbist.github.io/muxti-support">support</a> ή μέσω email στο boogieapps.help@gmail.com.</p>
+
+    <hr/>
+
+    <h2>12. Αγγελίες Ακινήτων</h2>
+    <p>Η παρούσα ενότητα εφαρμόζεται σε κάθε αγγελία που υποβάλλεται στο MUXTI και αφορά ακίνητη περιουσία, είτε για πώληση, ενοικίαση ή οποιαδήποτε άλλη συναλλαγή ακινήτου. Οι παρόντες κανόνες ισχύουν από την ημερομηνία που η κατηγορία Ακινήτων καθίσταται διαθέσιμη στο MUXTI.</p>
+
+    <h2>12.1 Το MUXTI είναι Διαφημιστική Πλατφόρμα — Όχι Κτηματομεσίτης</h2>
+    <p>Το MUXTI είναι πλατφόρμα διαφήμισης μεταξύ χρηστών. Δεν είμαστε αδειοδοτημένος κτηματομεσίτης ή μεσιτικό γραφείο και δεν ενεργούμε ως τέτοιοι. Δεν είμαστε μέρος, ούτε συμμετέχουμε, σε οποιαδήποτε συναλλαγή ακινήτου μεταξύ πωλητή, ιδιοκτήτη, αγοραστή ή ενοικιαστή. Δεν διοργανώνουμε προβολές, δεν παρέχουμε εκτιμήσεις, δεν διαπραγματευόμαστε όρους, ούτε διευκολύνουμε τη μεταβίβαση ακινήτου. Καμία σχέση εμπιστοσύνης, αντιπροσωπείας ή εκπροσώπησης δεν δημιουργείται μεταξύ MUXTI και οποιουδήποτε χρήστη, ιδιοκτήτη, κατασκευαστή ή επαγγελματία ακινήτων λόγω δημοσίευσης αγγελίας.</p>
+
+    <h2>12.2 Ποιος Μπορεί να Δημοσιεύσει Αγγελία Ακινήτου</h2>
+    <p>Μπορείτε να υποβάλετε αγγελία ακινήτου στο MUXTI μόνο εάν ανήκετε σε μία από τις παρακάτω κατηγορίες:</p>
+    <ul>
+      <li>Ο εγγεγραμμένος ιδιοκτήτης του ακινήτου</li>
+      <li>Αδειοδοτημένος κατασκευαστής ακινήτων σε σχέση με ανάπτυξη που κατέχει ή διαχειρίζεται</li>
+      <li>Αδειοδοτημένος κτηματομεσίτης ή βοηθός κτηματομεσίτη εγγεγραμμένος σύμφωνα με τους εφαρμοστέους νόμους της Κυπριακής Δημοκρατίας</li>
+      <li>Νόμιμα εξουσιοδοτημένος νομικός εκπρόσωπος του ιδιοκτήτη, που κατέχει έγκυρο Πληρεξούσιο που καλύπτει το δικαίωμα διαφήμισης του ακινήτου</li>
+      <li>Συγγενής πρώτου βαθμού του εγγεγραμμένου ιδιοκτήτη, ενεργώντας με γνώση και συναίνεση του ιδιοκτήτη</li>
+    </ul>
+    <p>Με την υποβολή αγγελίας ακινήτου, επιβεβαιώνετε ότι εμπίπτετε σε μία από τις παραπάνω κατηγορίες και ότι το δικαίωμά σας να διαφημίζετε το ακίνητο είναι έγκυρο και ενεργό. Το MUXTI δεν επαληθεύει την κυριότητα ή την εξουσιοδότηση. Η ευθύνη για την ακρίβεια αυτής της δήλωσης βαρύνει αποκλειστικά εσάς.</p>
+
+    <h2>12.3 Αδειοδοτημένοι Κτηματομεσίτες</h2>
+    <p>Εάν είστε αδειοδοτημένος κτηματομεσίτης ή βοηθός κτηματομεσίτη, υποχρεούστε να συμπεριλαμβάνετε τον αριθμό αδείας σας σε κάθε αγγελία ακινήτου που υποβάλλετε στο MUXTI. Είστε υπεύθυνοι για τη συμμόρφωση των δραστηριοτήτων σας στην πλατφόρμα με όλους τους εφαρμοστέους νόμους και κανονισμούς της Κυπριακής Δημοκρατίας, συμπεριλαμβανομένου του Νόμου περί Κτηματομεσιτών Αρ. 71(Ι)/2010, όπως τροποποιήθηκε. Το MUXTI δεν επαληθεύει αριθμούς αδειών και δεν αναλαμβάνει ευθύνη για αγγελίες που υποβάλλονται από μη αδειοδοτημένους μεσίτες.</p>
+
+    <h2>12.4 Βραχυχρόνιες Και Τουριστικές Ενοικιάσεις</h2>
+    <p>Εάν δημοσιεύετε ακίνητο για βραχυχρόνια ενοικίαση ή ως αυτοεξυπηρετούμενο κατάλυμα, είστε υπεύθυνοι για τη διασφάλιση ότι το ακίνητό σας είναι εγγεγραμμένο στο Μητρώο Αυτοεξυπηρετούμενων Καταλυμάτων που τηρεί η Υφυπουργεία Τουρισμού της Κυπριακής Δημοκρατίας, σύμφωνα με τον Νόμο περί Ξενοδοχείων Αρ. 34(Ι)/2019. Ο έγκυρος αριθμός εγγραφής σας πρέπει να αναγράφεται στην αγγελία. Αγγελίες που δεν περιλαμβάνουν έγκυρο αριθμό εγγραφής ενδέχεται να αφαιρεθούν χωρίς προειδοποίηση. Το MUXTI δεν παρέχει νομικές συμβουλές και δεν αναλαμβάνει ευθύνη για τυχόν πρόστιμα ή ρυθμιστικές κυρώσεις.</p>
+
+    <h2>12.5 Ακρίβεια και Ακεραιότητα Αγγελιών</h2>
+    <p>Είστε αποκλειστικά υπεύθυνοι για τη διασφάλιση ότι όλες οι πληροφορίες στην αγγελία ακινήτου σας — συμπεριλαμβανομένων τιμής, μεγέθους, τοποθεσίας, κατάστασης, νομικής κατάστασης και φωτογραφιών — είναι ακριβείς, πλήρεις και μη παραπλανητικές κατά τη δημοσίευση. Πρέπει να ενημερώνετε ή να αφαιρείτε αμέσως την αγγελία αν κάτι αλλάξει. Το MUXTI δεν επαληθεύει το περιεχόμενο αγγελιών ακινήτων.</p>
+
+    <h2>12.6 Γεωγραφικό Πεδίο Εφαρμογής</h2>
+    <p>Οι αγγελίες ακινήτων στο MUXTI περιορίζονται σε ακίνητα που βρίσκονται εντός της Κυπριακής Δημοκρατίας. Αγγελίες για ακίνητα εκτός Κυπριακής Δημοκρατίας δεν επιτρέπονται και ενδέχεται να αφαιρεθούν χωρίς προειδοποίηση.</p>
+
+    <h2>12.7 Χωρίς Ευθύνη για Συναλλαγές</h2>
+    <p>Οποιαδήποτε επαφή, διαπραγμάτευση, συμφωνία ή συναλλαγή που πραγματοποιείται μεταξύ χρηστών ως αποτέλεσμα αγγελίας ακινήτου στο MUXTI είναι αποκλειστικά ευθύνη των εμπλεκόμενων μερών. Το MUXTI δεν ευθύνεται για οποιαδήποτε ζημία, διαφορά ή νομικό ζήτημα. Οι χρήστες ενθαρρύνονται να ζητούν ανεξάρτητες νομικές και οικονομικές συμβουλές πριν από οποιαδήποτε συναλλαγή ακινήτου.</p>
+
+    <hr/>
+    <p style="font-size:13px;color:rgba(255,255,255,0.3)">© 2026 MUXTI. Κύπρος.</p>
+  </div>
+
 </div>
+
+<script>
+  const LANG_KEY = 'muxti_lang';
+
+  function setLang(lang) {
+    localStorage.setItem(LANG_KEY, lang);
+    applyLang(lang);
+  }
+
+  function applyLang(lang) {
+    // toggle content blocks
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('active', el.dataset.lang === lang);
+    });
+    // toggle buttons
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-el').classList.toggle('active', lang === 'el');
+    // update html lang attribute
+    document.getElementById('html-root').lang = lang;
+    // update page title
+    document.title = lang === 'el' ? 'Όροι Χρήσης — MUXTI' : 'Terms of Service — MUXTI';
+  }
+
+  // On load, restore preference
+  const saved = localStorage.getItem(LANG_KEY) || 'en';
+  applyLang(saved);
+</script>
 </body>
 </html>
