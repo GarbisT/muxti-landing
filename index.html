@@ -997,14 +997,21 @@
       background: rgba(255,255,255,0.12);
       transform: translateY(-2px);
     }
-    /* Normalise App Store button to match web button size inside the CTA row */
+    /* Normalise App Store + web buttons — same fixed height so they always match */
+    .cta-buttons .appstore-btn,
+    .cta-buttons .web-btn {
+      height: 52px;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
     .cta-buttons .appstore-btn {
-      padding: 14px 24px;
+      padding-left: 24px;
+      padding-right: 24px;
       gap: 12px;
       box-shadow: none;
     }
     .cta-buttons .appstore-btn svg { width: 28px; height: 28px; }
-    /* Hide the small "Download on the" label so both buttons are single-line / same height */
+    /* Hide the small "Download on the" label — keep single-line "App Store" */
     .cta-buttons .appstore-btn .abt { display: none; }
     .cta-buttons .appstore-btn .abm { font-size: 15px; font-weight: 600; display: inline; }
 
