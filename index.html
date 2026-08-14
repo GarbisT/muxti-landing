@@ -771,7 +771,7 @@
       nav { padding: 14px 20px; }
       .nav-links li:not(:last-child) { display: none; }
       .features-grid { grid-template-columns: 1fr 1fr; }
-      .cats-grid { grid-template-columns: repeat(3, 1fr); }
+      .cats-grid { grid-template-columns: repeat(4, 1fr); }
       .steps { grid-template-columns: 1fr; }
       .steps::before { display: none; }
       .showcase-row { grid-template-columns: 1fr; margin-bottom: 56px; }
@@ -798,7 +798,7 @@
       }
       .section { padding: 60px 20px 0px; }
       .cyprus-section { padding: 0px 20px 60px; }
-      #categories { padding-bottom: 0; margin-bottom: -120px; }
+      #categories { padding-bottom: 40px; margin-bottom: 0; }
       .stats-wrap { padding-bottom: 60px; }
       footer { flex-direction: column; gap: 18px; text-align: center; }
       .stats-bar { flex-wrap: wrap; gap: 0; }
@@ -988,6 +988,16 @@
       background: rgba(255,255,255,0.12);
       transform: translateY(-2px);
     }
+    /* Normalise App Store button to match web button size inside the CTA row */
+    .cta-buttons .appstore-btn {
+      padding: 14px 24px;
+      gap: 10px;
+      box-shadow: none;
+    }
+    .cta-buttons .appstore-btn svg { width: 22px; height: 22px; }
+    .cta-buttons .appstore-btn .abt { font-size: 10px; }
+    .cta-buttons .appstore-btn .abm { font-size: 15px; font-weight: 700; }
+
     .cta-buttons {
       display: flex;
       align-items: center;
@@ -1232,15 +1242,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="cats-grid stagger">
     <div class="cat-item"><span class="cat-emoji">🚗</span><span class="cat-label">Vehicles</span></div>
     <div class="cat-item"><span class="cat-emoji">📱</span><span class="cat-label">Electronics</span></div>
-    <div class="cat-item"><span class="cat-emoji">🛋️</span><span class="cat-label">Home</span></div>
-    <div class="cat-item"><span class="cat-emoji">👕</span><span class="cat-label">Fashion</span></div>
+    <div class="cat-item"><span class="cat-emoji">🛋️</span><span class="cat-label">Home &amp; Garden</span></div>
+    <div class="cat-item"><span class="cat-emoji">👗</span><span class="cat-label">Fashion</span></div>
     <div class="cat-item"><span class="cat-emoji">✨</span><span class="cat-label">Beauty</span></div>
-    <div class="cat-item"><span class="cat-emoji">🏃</span><span class="cat-label">Sports</span></div>
+    <div class="cat-item"><span class="cat-emoji">⚽</span><span class="cat-label">Sports</span></div>
     <div class="cat-item"><span class="cat-emoji">🔧</span><span class="cat-label">Services</span></div>
-    <div class="cat-item"><span class="cat-emoji">🎵</span><span class="cat-label">Entertainment</span></div>
+    <div class="cat-item"><span class="cat-emoji">🎮</span><span class="cat-label">Entertainment</span></div>
     <div class="cat-item"><span class="cat-emoji">🐾</span><span class="cat-label">Pets</span></div>
     <div class="cat-item"><span class="cat-emoji">💼</span><span class="cat-label">Jobs</span></div>
-    <div class="cat-item"><span class="cat-emoji">📦</span><span class="cat-label">Misc</span></div>
+    <div class="cat-item"><span class="cat-emoji">📦</span><span class="cat-label">Other</span></div>
     <div class="cat-item" style="background:rgba(124,58,237,0.10);border-color:rgba(124,58,237,0.24)">
       <span class="cat-emoji">🎁</span><span class="cat-label" style="color:#A78BFA">Free</span>
     </div>
