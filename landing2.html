@@ -1,0 +1,1788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MUXTI — Cyprus's Marketplace</title>
+
+  <!-- ─── GTM Consent Mode (default: denied until user accepts) ──── -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage':            'denied',
+      'ad_user_data':          'denied',
+      'ad_personalization':    'denied',
+      'analytics_storage':     'denied',
+      'wait_for_update':       500
+    });
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MDTSNDD6');</script>
+
+  <meta name="description" content="MUXTI is Cyprus's modern peer-to-peer marketplace. Buy, sell, and connect with people near you — on iOS and the web." />
+  <link rel="canonical" href="https://muxti.cy/" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://muxti.cy/" />
+  <meta property="og:title"       content="MUXTI — Cyprus's Marketplace" />
+  <meta property="og:description" content="Buy, sell, and connect with people near you in Cyprus." />
+  <meta property="og:image"       content="https://app.muxti.cy/assets/og-image.png" />
+  <meta property="og:locale"      content="en_CY" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="MUXTI — Cyprus's Marketplace" />
+  <meta name="twitter:description" content="Buy, sell, and connect with people near you in Cyprus." />
+  <meta name="twitter:image"       content="https://app.muxti.cy/assets/og-image.png" />
+
+  <!-- iOS Smart App Banner -->
+  <meta name="apple-itunes-app" content="app-id=6782088686, app-argument=https://muxti.cy/" />
+  <meta name="theme-color" content="#7C3AED" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple:       #7C3AED;
+      --purple-dark:  #5B21B6;
+      --purple-light: #EDE9FE;
+      --purple-mid:   #DDD6FE;
+      --dark:         #111827;
+      --dark2:        #1F2937;
+      --muted:        #6B7280;
+      --muted2:       #9CA3AF;
+      --border:       #E5E7EB;
+      --border2:      #F3F4F6;
+      --white:        #FFFFFF;
+      --off-white:    #F9FAFB;
+      --amber:        #D97706;
+      --amber-light:  #FFFBEB;
+      --amber-mid:    #FEF3C7;
+      --amber-border: #FDE68A;
+      --green:        #059669;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── AMBIENT BACKGROUND DECORATION ─────────────────────────── */
+    .bg-blob {
+      position: fixed;
+      pointer-events: none;
+      z-index: -1;
+    }
+    /* Top-right — large organic amoeba, warm purple */
+    .bg-blob-1 {
+      width: 760px; height: 640px;
+      top: -220px; right: -200px;
+      background: radial-gradient(ellipse 70% 60% at 38% 42%,
+        rgba(124,58,237,0.28) 0%,
+        rgba(167,139,250,0.16) 45%,
+        transparent 72%);
+      border-radius: 58% 42% 33% 67% / 55% 48% 52% 45%;
+      filter: blur(36px);
+      transform: rotate(-12deg);
+    }
+    /* Mid-left — horizontal stretch, softer lavender */
+    .bg-blob-2 {
+      width: 620px; height: 440px;
+      top: 36%; left: -230px;
+      background: radial-gradient(ellipse 80% 65% at 55% 48%,
+        rgba(109,40,217,0.22) 0%,
+        rgba(196,181,253,0.10) 50%,
+        transparent 72%);
+      border-radius: 40% 60% 70% 30% / 52% 38% 62% 48%;
+      filter: blur(44px);
+      transform: rotate(16deg);
+    }
+    /* Lower-right — tall teardrop */
+    .bg-blob-3 {
+      width: 540px; height: 560px;
+      bottom: 4%; right: -160px;
+      background: radial-gradient(ellipse 65% 75% at 38% 55%,
+        rgba(124,58,237,0.24) 0%,
+        rgba(139,92,246,0.10) 48%,
+        transparent 68%);
+      border-radius: 65% 35% 48% 52% / 38% 65% 35% 62%;
+      filter: blur(40px);
+      transform: rotate(-6deg);
+    }
+    /* Mid-page — small drifting accent */
+    .bg-blob-4 {
+      width: 380px; height: 340px;
+      top: 58%; left: 36%;
+      background: radial-gradient(ellipse 75% 65% at 50% 50%,
+        rgba(139,92,246,0.14) 0%,
+        transparent 65%);
+      border-radius: 55% 45% 60% 40% / 48% 52% 48% 52%;
+      filter: blur(50px);
+      transform: rotate(30deg);
+    }
+
+    /* ── FLOATING GEOMETRIC SHAPES (hero) ───────────────────────── */
+    .geo {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+    }
+    /* Tilted square outline */
+    .geo-diamond {
+      border: 1.5px solid rgba(124,58,237,0.22);
+      transform: rotate(45deg);
+      border-radius: 4px;
+    }
+    /* Circle ring */
+    .geo-ring {
+      border-radius: 50%;
+      border: 1.5px solid rgba(124,58,237,0.18);
+    }
+    /* Small filled diamond */
+    .geo-dot {
+      background: rgba(124,58,237,0.18);
+      transform: rotate(45deg);
+      border-radius: 3px;
+    }
+    /* Cross / plus mark */
+    .geo-cross::before,
+    .geo-cross::after {
+      content: '';
+      position: absolute;
+      background: rgba(124,58,237,0.22);
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .geo-cross::before { width: 100%; height: 1.5px; }
+    .geo-cross::after  { width: 1.5px; height: 100%; }
+
+    @keyframes geo-float {
+      0%, 100% { transform: rotate(45deg) translateY(0px); }
+      50%       { transform: rotate(45deg) translateY(-14px); }
+    }
+    @keyframes geo-float-ring {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-10px); }
+    }
+    @keyframes geo-float-cross {
+      0%, 100% { transform: rotate(0deg) translateY(0px); }
+      50%       { transform: rotate(15deg) translateY(-8px); }
+    }
+
+    /* ── UTILITIES ──────────────────────────────────────────────── */
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--purple);
+      background: var(--purple-light);
+      border-radius: 100px;
+      padding: 6px 14px;
+      margin-bottom: 20px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--purple);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .btn-primary:hover { background: var(--purple-dark); transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--dark);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 13px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .btn-secondary:hover { border-color: var(--purple); background: var(--purple-light); color: var(--purple); }
+
+    /* ── NAV ────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      color: var(--purple);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--dark); }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-cta .btn-secondary {
+      padding: 9px 18px;
+      font-size: 14px;
+    }
+    .nav-cta .btn-primary {
+      padding: 9px 18px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+
+    /* ── HERO ───────────────────────────────────────────────────── */
+    .hero {
+      padding-top: 128px;
+      padding-bottom: 80px;
+      background-color: var(--white);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero-left {}
+
+    .hero-h1 {
+      font-size: clamp(40px, 5.5vw, 64px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -2px;
+      color: var(--dark);
+      margin-bottom: 24px;
+    }
+
+    .hero-h1 em {
+      font-style: normal;
+      color: var(--purple);
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 40px;
+      max-width: 500px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .hero-social-proof {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .hero-avatars {
+      display: flex;
+    }
+    .hero-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      background: var(--purple-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--purple);
+      margin-left: -8px;
+    }
+    .hero-avatar:first-child { margin-left: 0; }
+
+    .hero-right {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-phone-wrap {
+      position: relative;
+      width: 300px;
+    }
+
+    .hero-glow {
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 280px;
+      height: 120px;
+      background: radial-gradient(ellipse, rgba(124,58,237,0.35) 0%, transparent 70%);
+      filter: blur(20px);
+      z-index: 0;
+    }
+
+    .hero-phone {
+      width: 300px;
+      display: block;
+      position: relative;
+      z-index: 1;
+      transform: rotate(3deg);
+      drop-shadow: 0 40px 80px rgba(0,0,0,0.2);
+      filter: drop-shadow(0px 32px 64px rgba(124,58,237,0.25)) drop-shadow(0px 8px 16px rgba(0,0,0,0.15));
+    }
+
+    .hero-float-card {
+      position: absolute;
+      left: -60px;
+      top: 30%;
+      background: #fff;
+      border-radius: 16px;
+      padding: 12px 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.06);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+
+    .hero-float-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--purple-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .hero-float-label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .hero-float-value {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .hero-float-card2 {
+      position: absolute;
+      right: -48px;
+      bottom: 22%;
+      background: #fff;
+      border-radius: 16px;
+      padding: 10px 14px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.06);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .new-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+      flex-shrink: 0;
+    }
+
+    .hero-float-card2-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-right { display: none; }
+      .hero-subtitle { margin-left: auto; margin-right: auto; }
+      .hero-buttons { justify-content: center; }
+      .hero-social-proof { justify-content: center; }
+    }
+
+    /* ── TRUST BAR ──────────────────────────────────────────────── */
+    .trust {
+      background-color: var(--off-white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 24px;
+    }
+
+    .trust-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .trust-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--purple-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    /* ── SECTION SHARED ─────────────────────────────────────────── */
+    .section {
+      padding: 96px 0;
+      position: relative;
+    }
+
+    /* Use background-color (NOT shorthand) so background-image from .pattern-* classes isn't reset */
+    .section-light { background-color: var(--white); }
+    .section-gray  { background-color: var(--off-white); }
+
+    /* Decorative rings */
+    .deco-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1.5px solid rgba(124,58,237,0.14);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Ensure section content always sits above decorations */
+    .section > .container { position: relative; z-index: 1; }
+
+    /* ── SECTION PATTERNS ─────────────────────────────────────── */
+
+    /* Plus / crosshair grid */
+    .pattern-plus {
+      background-image: url("data:image/svg+xml,%3Csvg width='44' height='44' viewBox='0 0 44 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22 6v32M6 22h32' stroke='rgba(124%2C58%2C237%2C0.14)' stroke-width='1.3' fill='none'/%3E%3C/svg%3E");
+      background-size: 44px 44px;
+      background-repeat: repeat;
+    }
+
+    /* Diamond dots */
+    .pattern-diamond {
+      background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='13.5' y='13.5' width='5' height='5' fill='rgba(124%2C58%2C237%2C0.18)' transform='rotate(45 16 16)'/%3E%3C/svg%3E");
+      background-size: 32px 32px;
+      background-repeat: repeat;
+    }
+
+    /* Diagonal stripes */
+    .pattern-diagonal {
+      background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 24L24 0' stroke='rgba(124%2C58%2C237%2C0.11)' stroke-width='1.1' fill='none'/%3E%3C/svg%3E");
+      background-size: 24px 24px;
+      background-repeat: repeat;
+    }
+
+    /* Wave lines */
+    .pattern-wave {
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='24' viewBox='0 0 80 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 12 Q20 2 40 12 Q60 22 80 12' stroke='rgba(124%2C58%2C237%2C0.11)' stroke-width='1.3' fill='none'/%3E%3C/svg%3E");
+      background-size: 80px 24px;
+      background-repeat: repeat;
+    }
+
+    /* Dot grid */
+    .pattern-dots {
+      background-image: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='14' cy='14' r='1.8' fill='rgba(124%2C58%2C237%2C0.15)'/%3E%3C/svg%3E");
+      background-size: 28px 28px;
+      background-repeat: repeat;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .section-h2 {
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      color: var(--dark);
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    .section-sub {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ── HOW IT WORKS ───────────────────────────────────────────── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      position: relative;
+    }
+
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(16.66% + 8px);
+      right: calc(16.66% + 8px);
+      height: 1px;
+      background: linear-gradient(90deg, var(--border) 0%, var(--purple-mid) 50%, var(--border) 100%);
+      z-index: 0;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-number {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--purple);
+      color: #fff;
+      font-size: 20px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    @media (max-width: 680px) {
+      .steps { grid-template-columns: 1fr; }
+      .steps::before { display: none; }
+    }
+
+    /* ── FEATURE ROWS ───────────────────────────────────────────── */
+    .feature-row {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border2);
+    }
+    .feature-row:last-child { border-bottom: none; }
+
+    .feature-row-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .feature-row-inner.reversed { direction: rtl; }
+    .feature-row-inner.reversed > * { direction: ltr; }
+
+    .feature-text .eyebrow { margin-bottom: 16px; }
+
+    .feature-h3 {
+      font-size: clamp(24px, 2.8vw, 36px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: var(--dark);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .feature-p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .feature-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .feature-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--dark2);
+      font-weight: 500;
+    }
+
+    .check-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--purple-light);
+      color: var(--purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .feature-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .feature-phone {
+      width: 260px;
+      display: block;
+      filter: drop-shadow(0px 24px 48px rgba(0,0,0,0.15)) drop-shadow(0px 4px 12px rgba(0,0,0,0.08));
+    }
+
+    @media (max-width: 768px) {
+      .feature-row-inner { grid-template-columns: 1fr; direction: ltr !important; gap: 40px; }
+      .feature-row-inner.reversed > * { direction: ltr; }
+      .feature-visual { display: none; }
+    }
+
+    /* ── CATEGORIES ─────────────────────────────────────────────── */
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+    }
+
+    .category-card {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 12px;
+      text-align: center;
+      cursor: default;
+      transition: border-color 0.15s, background 0.15s, transform 0.15s;
+    }
+
+    .category-card:hover {
+      border-color: var(--purple-mid);
+      background: var(--purple-light);
+      transform: translateY(-2px);
+    }
+
+    .category-emoji {
+      font-size: 28px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .category-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--dark2);
+    }
+
+    @media (max-width: 768px) {
+      .categories-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 400px) {
+      .categories-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── BENTO CARDS ────────────────────────────────────────────── */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .bento-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .bento-card:hover {
+      border-color: var(--purple-mid);
+      box-shadow: 0 8px 32px rgba(124,58,237,0.08);
+    }
+
+    .bento-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--purple-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .bento-h4 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .bento-p {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    @media (max-width: 640px) {
+      .bento-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── FOUNDING SELLER ────────────────────────────────────────── */
+    .founding {
+      background-color: var(--amber-light);
+      border-top: 1px solid var(--amber-border);
+      border-bottom: 1px solid var(--amber-border);
+      padding: 80px 0;
+    }
+
+    .founding-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .founding-left {}
+
+    .founding-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--amber);
+      background: rgba(217,119,6,0.1);
+      border: 1px solid rgba(217,119,6,0.25);
+      border-radius: 100px;
+      padding: 5px 14px;
+      margin-bottom: 20px;
+    }
+
+    .founding-h2 {
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      color: #92400E;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    .founding-p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #78350F;
+      margin-bottom: 32px;
+    }
+
+    .founding-perks {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .founding-perk {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: #78350F;
+      font-weight: 500;
+    }
+
+    .perk-badge {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--amber);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .founding-right {
+      background: #fff;
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 8px 32px rgba(217,119,6,0.12), 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid var(--amber-border);
+    }
+
+    .counter-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .counter-number {
+      font-size: 56px;
+      font-weight: 900;
+      letter-spacing: -3px;
+      color: var(--amber);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .counter-sub {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .progress-track {
+      background: var(--amber-mid);
+      border-radius: 100px;
+      height: 10px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 100px;
+      background: linear-gradient(90deg, #D97706, #F59E0B);
+      transition: width 0.8s ease;
+    }
+
+    .progress-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .founding-cta {
+      display: block;
+      text-align: center;
+      background: var(--amber);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .founding-cta:hover { background: #B45309; transform: translateY(-1px); }
+
+    .founding-cta-note {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .founding-inner { grid-template-columns: 1fr; }
+    }
+
+    /* ── DOWNLOAD CTA ───────────────────────────────────────────── */
+    .download-cta {
+      background-color: var(--purple-light);
+      border-top: 1px solid var(--purple-mid);
+      padding: 100px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .download-cta::before {
+      content: '';
+      position: absolute;
+      top: -160px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(124,58,237,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .download-cta-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .download-h2 {
+      font-size: clamp(32px, 4.5vw, 56px);
+      font-weight: 900;
+      letter-spacing: -2.5px;
+      color: var(--dark);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .download-sub {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 48px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .download-buttons {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .download-app-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--purple);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 16px 28px;
+      border-radius: 14px;
+      text-decoration: none;
+      min-width: 220px;
+      justify-content: center;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .download-app-btn:hover { background: var(--purple-dark); transform: translateY(-2px); }
+
+    .app-apple-logo {
+      font-size: 26px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .app-btn-label { font-size: 11px; font-weight: 400; opacity: 0.8; display: block; }
+    .app-btn-name  { font-size: 16px; font-weight: 700; display: block; }
+
+    .download-web-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #fff;
+      color: var(--dark);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 16px 28px;
+      border-radius: 14px;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      min-width: 220px;
+      transition: border-color 0.15s, background 0.15s, transform 0.1s;
+    }
+    .download-web-btn:hover { border-color: var(--purple); background: var(--purple-light); transform: translateY(-2px); }
+
+    /* ── FOOTER ─────────────────────────────────────────────────── */
+    footer {
+      background-color: var(--off-white);
+      padding: 40px 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--purple);
+      letter-spacing: -0.5px;
+      text-decoration: none;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: var(--dark); }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--muted2);
+    }
+
+    /* ── COOKIE BANNER ──────────────────────────────────────────── */
+    #cookie-banner {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+      padding: 20px 24px;
+      max-width: 520px;
+      width: calc(100% - 48px);
+    }
+
+    .cookie-inner {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .cookie-text {
+      flex: 1;
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .cookie-text strong { color: var(--dark); }
+
+    .cookie-buttons {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .cookie-accept {
+      background: var(--purple);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .cookie-accept:hover { background: var(--purple-dark); }
+
+    .cookie-reject {
+      background: transparent;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: border-color 0.15s;
+    }
+    .cookie-reject:hover { border-color: var(--muted2); }
+  </style>
+</head>
+<body>
+
+<!-- GTM Noscript -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MDTSNDD6"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- ─── AMBIENT BACKGROUND BLOBS ─────────────────────────────────── -->
+<div class="bg-blob bg-blob-1" aria-hidden="true"></div>
+<div class="bg-blob bg-blob-2" aria-hidden="true"></div>
+<div class="bg-blob bg-blob-3" aria-hidden="true"></div>
+<div class="bg-blob bg-blob-4" aria-hidden="true"></div>
+
+<!-- ─── NAV ─────────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <a href="https://muxti.cy" class="nav-logo">MUXTI</a>
+    <ul class="nav-links">
+      <li><a href="#how-it-works">How it works</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#founding-seller">Founding Perk</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://muxti.cy" class="btn-secondary">Browse Web</a>
+      <a href="https://apps.apple.com/cy/app/muxti/id6782088686" class="btn-primary">Download App</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── HERO ─────────────────────────────────────────────────────── -->
+<section class="hero pattern-plus">
+  <!-- floating geometric shapes -->
+  <div class="geo geo-diamond" aria-hidden="true"
+       style="width:72px;height:72px;top:18%;left:8%;animation:geo-float 9s ease-in-out infinite;"></div>
+  <div class="geo geo-ring" aria-hidden="true"
+       style="width:110px;height:110px;top:62%;left:5%;animation:geo-float-ring 11s ease-in-out infinite;"></div>
+  <div class="geo geo-dot" aria-hidden="true"
+       style="width:14px;height:14px;top:30%;left:14%;"></div>
+  <div class="geo geo-cross" aria-hidden="true"
+       style="width:28px;height:28px;top:72%;left:18%;animation:geo-float-cross 13s ease-in-out infinite;"></div>
+  <div class="geo geo-ring" aria-hidden="true"
+       style="width:60px;height:60px;top:14%;left:48%;animation:geo-float-ring 7s ease-in-out infinite reverse;opacity:0.6;"></div>
+  <div class="geo geo-diamond" aria-hidden="true"
+       style="width:44px;height:44px;top:80%;left:40%;animation:geo-float 12s ease-in-out infinite reverse;opacity:0.7;"></div>
+  <div class="geo geo-dot" aria-hidden="true"
+       style="width:10px;height:10px;top:50%;left:55%;opacity:0.6;"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <span class="eyebrow">Now live in Cyprus &nbsp;&#x1F1E8;&#x1F1FE;</span>
+      <h1 class="hero-h1">
+        Cyprus finally has a marketplace<br>
+        <em>worth&nbsp;using.</em>
+      </h1>
+      <p class="hero-subtitle">
+        The marketplace Cyprus was waiting for. Buy, sell, swap, or find services — fast, local, and built from the ground up for people here.
+      </p>
+      <div class="hero-buttons">
+        <a href="https://apps.apple.com/cy/app/muxti/id6782088686" class="btn-primary">
+          &#xF8FF; &nbsp; Download on App Store
+        </a>
+        <a href="https://muxti.cy" class="btn-secondary">
+          Browse on the web &nbsp;&rarr;
+        </a>
+      </div>
+      <div class="hero-social-proof">
+        <div class="hero-avatars">
+          <div class="hero-avatar">MK</div>
+          <div class="hero-avatar">AP</div>
+          <div class="hero-avatar">CS</div>
+          <div class="hero-avatar">+</div>
+        </div>
+        <span>Just launched &mdash; be one of the first</span>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-phone-wrap">
+        <div class="hero-glow"></div>
+        <img
+          src="https://app.muxti.cy/assets/framed_home_dark.webp"
+          alt="MUXTI app home screen"
+          class="hero-phone"
+          width="300"
+        />
+        <div class="hero-float-card">
+          <div class="hero-float-icon">&#x2605;</div>
+          <div>
+            <div class="hero-float-label">Featured listing</div>
+            <div class="hero-float-value">Ford Kuga 2026 Black Package</div>
+          </div>
+        </div>
+        <div class="hero-float-card2">
+          <div class="new-dot"></div>
+          <span class="hero-float-card2-text">New listing posted</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TRUST BAR ─────────────────────────────────────────────────── -->
+<div class="trust pattern-dots">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-icon">&#x1F4F1;</div>
+      iOS app &amp; web
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">&#x1F195;</div>
+      Free to download
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">&#x1F1E8;&#x1F1FE;</div>
+      Cyprus&ndash;only listings
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">&#x1F512;</div>
+      In-app messaging
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">&#x26A1;</div>
+      Real-time notifications
+    </div>
+  </div>
+</div>
+
+<!-- ─── HOW IT WORKS ──────────────────────────────────────────────── -->
+<section class="section section-light pattern-diagonal" id="how-it-works">
+  <div class="deco-ring" aria-hidden="true" style="width:460px;height:460px;top:-180px;right:-120px;"></div>
+  <div class="deco-ring" aria-hidden="true" style="width:260px;height:260px;bottom:-90px;left:4%;"></div>
+  <div class="deco-ring" aria-hidden="true" style="width:140px;height:140px;top:30%;left:28%;border-color:rgba(124,58,237,0.09);"></div>
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">The process</span>
+      <h2 class="section-h2">Selling is a three-step job.</h2>
+      <p class="section-sub">No listings fees. No complicated setup. Post in under a minute and start getting messages.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Post your listing</h3>
+        <p>Snap a photo, set your price, pick a category. Your listing goes live immediately and is reviewed for quality automatically.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Chat with buyers</h3>
+        <p>Interested buyers message you directly inside the app. No phone numbers shared until you decide to. Real-time, private, secure.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Trade locally</h3>
+        <p>Meet in person, complete the deal, and leave a review. That's it. No middlemen, no service fees, no nonsense.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURE ROWS ───────────────────────────────────────────────── -->
+<section class="section section-gray pattern-diagonal" id="features">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Features</span>
+      <h2 class="section-h2">Everything you need.<br>Nothing you don't.</h2>
+    </div>
+  </div>
+
+  <!-- Feature 1: Feed & Discovery -->
+  <div class="feature-row">
+    <div class="feature-row-inner">
+      <div class="feature-text">
+        <span class="eyebrow">Browse &amp; discover</span>
+        <h3 class="feature-h3">A feed built for finding deals.</h3>
+        <p class="feature-p">
+          The MUXTI feed is where it all starts. Filter by category, sort by newest or most popular, and be among the first to discover what people in Cyprus are buying, selling, and trading.
+        </p>
+        <ul class="feature-checklist">
+          <li>
+            <div class="check-icon">&#10003;</div>
+            12 categories from vehicles to services
+          </li>
+          <li>
+            <div class="check-icon">&#10003;</div>
+            Supply listings (selling) and demand listings (looking for)
+          </li>
+          <li>
+            <div class="check-icon">&#10003;</div>
+            Featured listings boosted to the top
+          </li>
+        </ul>
+      </div>
+      <div class="feature-visual">
+        <img
+          src="https://app.muxti.cy/assets/framed_home_dark.webp"
+          alt="MUXTI home feed"
+          class="feature-phone"
+          width="260"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature 2: Search & Saved Searches -->
+  <div class="feature-row">
+    <div class="feature-row-inner reversed">
+      <div class="feature-text">
+        <span class="eyebrow">Search &amp; alerts</span>
+        <h3 class="feature-h3">Save a search. Get pinged when it appears.</h3>
+        <p class="feature-p">
+          Not finding what you're looking for right now? Save the search. MUXTI will send you a notification the moment a matching listing goes live — so you never miss a deal.
+        </p>
+        <ul class="feature-checklist">
+          <li>
+            <div class="check-icon">&#10003;</div>
+            Full-text search across all listings
+          </li>
+          <li>
+            <div class="check-icon">&#10003;</div>
+            Save searches with one tap
+          </li>
+          <li>
+            <div class="check-icon">&#10003;</div>
+            Push notifications for new matches
+          </li>
+        </ul>
+      </div>
+      <div class="feature-visual">
+        <img
+          src="https://app.muxti.cy/assets/framed_search.webp"
+          alt="MUXTI search screen"
+          class="feature-phone"
+          width="260"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature 3: Demand Listings -->
+  <div class="feature-row">
+    <div class="feature-row-inner">
+      <div class="feature-text">
+        <span class="eyebrow">Demand listings</span>
+        <h3 class="feature-h3">Post what you want.<br>Let sellers find you.</h3>
+        <p class="feature-p">
+          Most marketplaces only let you sell. MUXTI flips it. Post a demand listing — what you're looking for, your budget, your conditions — and let the community come to you.
+        </p>
+        <ul class="feature-checklist">
+          <li>
+            <div class="check-icon">&#10003;</div>
+            "Looking for" listings appear in their own feed
+          </li>
+          <li>
+            <div class="check-icon">&#10003;</div>
+            Sellers can reach out directly
+          </li>
+          <li>
+            <div class="check-icon">&#10003;</div>
+            Unique to MUXTI in Cyprus
+          </li>
+        </ul>
+      </div>
+      <div class="feature-visual">
+        <img
+          src="https://app.muxti.cy/assets/framed_post.webp"
+          alt="MUXTI listing detail"
+          class="feature-phone"
+          width="260"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CATEGORIES ────────────────────────────────────────────────── -->
+<section class="section section-light pattern-diamond">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Categories</span>
+      <h2 class="section-h2">One place. Everything.</h2>
+      <p class="section-sub">From cars to collectibles — if it can be bought or sold in Cyprus, it belongs on MUXTI.</p>
+    </div>
+    <div class="categories-grid">
+      <div class="category-card">
+        <span class="category-emoji">&#x1F697;</span>
+        <div class="category-label">Vehicles</div>
+      </div>
+      <div class="category-card">
+        <span class="category-emoji">&#x1F4F1;</span>
+        <div class="category-label">Electronics</div>
+      </div>
+      <div class="category-card">
+        <span class="category-emoji">&#x1F6CB;&#xFE0F;</span>
+        <div class="category-label">Home Goods</div>
+      </div>
+      <div class="category-card">
+        <span class="category-emoji">&#x1F457;</span>
+        <div class="category-label">Fashion</div>
+      </div>
+      <div class="category-card">
+        <span class="category-emoji">&#x1F484;</span>
+        <div class="category-label">Beauty</div>
+      </div>
+      <div class="category-card">
+        <span class="category-emoji">&#x26BD;</span>
+        <div class="category-label">Sports</div>
+      </div>
+      <div class="category-card">
+        <span class="category-emoji">&#x1F527;</span>
+        <div class="category-label">Services</div>
+      </div>
+      <div class="category-card">
+        <span class="category-emoji">&#x1F3AE;</span>
+        <div class="category-label">Entertainment</div>
+      </div>
+      <div class="category-card">
+        <span class="category-emoji">&#x1F43E;</span>
+        <div class="category-label">Pets</div>
+      </div>
+      <div class="category-card">
+        <span class="category-emoji">&#x1F381;</span>
+        <div class="category-label">Free</div>
+      </div>
+      <div class="category-card">
+        <span class="category-emoji">&#x1F4BC;</span>
+        <div class="category-label">Jobs</div>
+      </div>
+      <div class="category-card">
+        <span class="category-emoji">&#x1F4E6;</span>
+        <div class="category-label">Other</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY DIFFERENT ─────────────────────────────────────────────── -->
+<section class="section section-gray pattern-wave" style="position:relative;overflow:hidden;">
+  <div class="deco-ring" aria-hidden="true" style="width:520px;height:520px;top:50%;left:-200px;transform:translateY(-50%);"></div>
+  <div class="deco-ring" aria-hidden="true" style="width:300px;height:300px;top:8%;right:-80px;"></div>
+  <div class="deco-ring" aria-hidden="true" style="width:160px;height:160px;bottom:10%;right:20%;border-color:rgba(124,58,237,0.10);"></div>
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Why MUXTI</span>
+      <h2 class="section-h2">A marketplace built for 2025, not 2005.</h2>
+      <p class="section-sub">No more scrolling through expired listings, calling strangers, or dealing with clunky interfaces. MUXTI is what buying and selling in Cyprus should feel like.</p>
+    </div>
+    <div class="bento-grid">
+      <div class="bento-card">
+        <div class="bento-icon">&#x1F4AC;</div>
+        <h4 class="bento-h4">Message without giving out your number</h4>
+        <p class="bento-p">All conversations happen inside the app. Your phone number stays private until you choose to share it. Real-time typing indicators, read receipts, and a clean inbox — it feels like modern messaging, not email from 2003.</p>
+      </div>
+      <div class="bento-card">
+        <div class="bento-icon">&#x26A1;</div>
+        <h4 class="bento-h4">Get Featured &amp; stand out</h4>
+        <p class="bento-p">Boost your listing to the top of the feed with a Featured slot — seen by every active buyer first. Plans start from &euro;2.99.</p>
+      </div>
+      <div class="bento-card">
+        <div class="bento-icon">&#x1F514;</div>
+        <h4 class="bento-h4">Notifications that actually matter</h4>
+        <p class="bento-p">New message from a buyer? A saved search just matched? MUXTI sends the right alerts — not spam, just signals you asked for.</p>
+      </div>
+      <div class="bento-card">
+        <div class="bento-icon">&#x1F310;</div>
+        <h4 class="bento-h4">iPhone app &amp; full web access</h4>
+        <p class="bento-p">Download the iOS app for the full experience, or browse any listing right now at muxti.cy — no app required.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOUNDING SELLER ───────────────────────────────────────────── -->
+<section class="founding" id="founding-seller">
+  <div class="founding-inner">
+    <div class="founding-left">
+      <div class="founding-eyebrow">&#11088; Founding Seller Perk</div>
+      <h2 class="founding-h2">Be one of the first 100&nbsp;sellers.</h2>
+      <p class="founding-p">
+        MUXTI is brand new — and the first 100 people to post a listing earn a permanent gold badge and a free Featured listing slot, no strings attached.
+      </p>
+      <div class="founding-perks">
+        <div class="founding-perk">
+          <div class="perk-badge">1</div>
+          <span><strong>Founding Seller badge</strong> — a gold star on your profile, forever. Signals that you were here from day one.</span>
+        </div>
+        <div class="founding-perk">
+          <div class="perk-badge">2</div>
+          <span><strong>Free Featured listing</strong> (worth &euro;14.99) — use it on any listing, whenever you're ready. Valid for one full year.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="founding-right">
+      <div class="counter-label">Spots remaining</div>
+      <div class="counter-number" id="founderRemaining">—</div>
+      <div class="counter-sub" id="founderSub">Loading live count&hellip;</div>
+      <div class="progress-track">
+        <div class="progress-fill" id="founderBar" style="width: 0%"></div>
+      </div>
+      <div class="progress-labels">
+        <span>0 taken</span>
+        <span>100 total spots</span>
+      </div>
+      <a href="https://apps.apple.com/cy/app/muxti/id6782088686" class="founding-cta" id="founderCta">
+        Claim your spot &mdash; Download MUXTI
+      </a>
+      <div class="founding-cta-note" id="founderNote">Post your first listing to qualify automatically.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DOWNLOAD CTA ──────────────────────────────────────────────── -->
+<section class="download-cta pattern-plus">
+  <div class="container download-cta-inner">
+    <span class="eyebrow">Get started now</span>
+    <h2 class="download-h2">Ready to make your<br>first deal in&nbsp;Cyprus?</h2>
+    <p class="download-sub">Download the app or browse on the web — it takes 30 seconds to post your first listing.</p>
+    <div class="download-buttons">
+      <a href="https://apps.apple.com/cy/app/muxti/id6782088686" class="download-app-btn">
+        <span class="app-apple-logo">&#xF8FF;</span>
+        <div>
+          <span class="app-btn-label">Download on the</span>
+          <span class="app-btn-name">App Store</span>
+        </div>
+      </a>
+      <a href="https://muxti.cy" class="download-web-btn">
+        &#x1F310;&nbsp; Browse muxti.cy &nbsp;&rarr;
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <a href="https://muxti.cy" class="footer-logo">MUXTI</a>
+    <div class="footer-links">
+      <a href="https://muxti.cy/privacy">Privacy Policy</a>
+      <a href="https://muxti.cy/terms">Terms of Service</a>
+      <a href="https://garbist.github.io/muxti-support">Support</a>
+      <a href="https://apps.apple.com/cy/app/muxti/id6782088686">App Store</a>
+    </div>
+    <div class="footer-copy">&copy; 2025 BoogieApps. Made in Cyprus.</div>
+  </div>
+</footer>
+
+<!-- ─── COOKIE BANNER ─────────────────────────────────────────────── -->
+<div id="cookie-banner">
+  <div class="cookie-inner">
+    <div>
+      <div class="cookie-text">
+        <strong>Cookie preferences</strong><br />
+        We use cookies and similar tools to measure how MUXTI is used and to improve your experience. You can accept all or decline non-essential cookies.
+      </div>
+      <div class="cookie-buttons">
+        <button class="cookie-accept" id="cookie-accept">Accept all</button>
+        <button class="cookie-reject" id="cookie-reject">Decline</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SCRIPTS ───────────────────────────────────────────────────── -->
+<script>
+  // ── Founding Seller live counter ────────────────────────────────
+  const SUPABASE_URL  = 'https://wixufenxovnqvooznhwy.supabase.co';
+  const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndpeHVmZW54b3ZucXZvb3puaHd5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyNDQ0NTEsImV4cCI6MjA5NjgyMDQ1MX0.rfQz3fMCKj1DmnMxztytcQTI99I1bohibbeJDaQuYTc';
+  const TOTAL_SPOTS   = 100;
+
+  async function loadFounderCount() {
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/get_founder_count`, {
+        method: 'POST',
+        headers: {
+          'apikey':       SUPABASE_ANON,
+          'Content-Type': 'application/json',
+        },
+        body: '{}',
+      });
+      if (!res.ok) throw new Error('fetch failed');
+      const count = await res.json();
+      updateFounderUI(typeof count === 'number' ? count : 0);
+    } catch {
+      updateFounderUI(null);
+    }
+  }
+
+  function updateFounderUI(taken) {
+    const remainingEl = document.getElementById('founderRemaining');
+    const subEl       = document.getElementById('founderSub');
+    const barEl       = document.getElementById('founderBar');
+    const ctaEl       = document.getElementById('founderCta');
+    const noteEl      = document.getElementById('founderNote');
+
+    if (!remainingEl) return;
+
+    if (taken === null) {
+      remainingEl.textContent = '—';
+      if (subEl) subEl.textContent = 'Could not load live count.';
+      return;
+    }
+
+    const remaining = Math.max(0, TOTAL_SPOTS - taken);
+    const pct = Math.min(100, Math.round((taken / TOTAL_SPOTS) * 100));
+
+    remainingEl.textContent = remaining;
+
+    if (remaining === 0) {
+      if (subEl)  subEl.textContent  = 'All 100 founding spots have been claimed.';
+      if (ctaEl)  ctaEl.textContent  = 'Download MUXTI';
+      if (noteEl) noteEl.textContent = 'The Founding Seller perk has closed — but the app is still free.';
+      if (barEl)  barEl.style.width  = '100%';
+    } else {
+      const plural = taken === 1 ? 'person has' : 'people have';
+      if (subEl)  subEl.textContent  = `${taken} ${plural} already claimed a spot.`;
+      if (barEl)  barEl.style.width  = `${pct}%`;
+    }
+  }
+
+  loadFounderCount();
+
+  // ── Cookie Banner ────────────────────────────────────────────────
+  (function () {
+    var CONSENT_KEY = 'muxti_cookie_consent';
+
+    function applyConsent(granted) {
+      var val = granted ? 'granted' : 'denied';
+      gtag('consent', 'update', {
+        ad_storage:         val,
+        ad_user_data:       val,
+        ad_personalization: val,
+        analytics_storage:  val,
+      });
+    }
+
+    function hideBanner() {
+      var b = document.getElementById('cookie-banner');
+      if (b) b.style.display = 'none';
+    }
+
+    var saved = localStorage.getItem(CONSENT_KEY);
+    if (saved) {
+      applyConsent(saved === 'granted');
+    } else {
+      setTimeout(function () {
+        var b = document.getElementById('cookie-banner');
+        if (b) b.style.display = 'block';
+      }, 900);
+    }
+
+    document.getElementById('cookie-accept').addEventListener('click', function () {
+      localStorage.setItem(CONSENT_KEY, 'granted');
+      applyConsent(true);
+      hideBanner();
+    });
+
+    document.getElementById('cookie-reject').addEventListener('click', function () {
+      localStorage.setItem(CONSENT_KEY, 'denied');
+      applyConsent(false);
+      hideBanner();
+    });
+  })();
+</script>
+
+</body>
+</html>
