@@ -465,6 +465,9 @@
     .feat-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
     .feat-desc  { font-size: 14px; color: var(--text2); line-height: 1.65; }
 
+    /* Center a lone last card in a 3-col features grid */
+    .features-grid > .feat-card:last-child:nth-child(3n+1) { grid-column: 2; }
+
     /* ─── How it works ──────────────────────────────────────────── */
     .steps {
       display: grid;
@@ -1128,6 +1131,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="feat-icon" style="background:rgba(236,72,153,0.14)">🚀</div>
       <h3 class="feat-title">Boost Listings</h3>
       <p class="feat-desc">Selling something fast matters. Quick, Smart, or Max boost puts your listing at the top of the feed — in front of active buyers the moment they open the app.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon" style="background:rgba(34,197,94,0.14)">📊</div>
+      <h3 class="feat-title">Listing Analytics</h3>
+      <p class="feat-desc">Know exactly how your listing is performing. Impressions, views, CTR, and contact rate — all in one screen. Use the data to price smarter, boost at the right moment, and close faster.</p>
     </div>
   </div>
 </div>
